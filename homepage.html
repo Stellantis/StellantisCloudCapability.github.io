@@ -1,0 +1,28 @@
+---
+layout: empty-page
+permalink: /
+require: aos typed card homepage thumbnail cta
+description: "Stellantis Developers is the dedicated platform for application developers working with Stellantis
+connected vehicles API and SDKs."
+redirect_from:
+    - /connected-vehicles/use-case/
+---
+
+
+<script>
+    /*----------- TYPED ---------*/
+
+    var typedHeader1 = new Typed('#typed-header-1', {
+        strings: ['CIOT '], typeSpeed: 50, cursorChar: '_', onComplete: (self) => {
+            document.getElementById("typed-header-1").nextElementSibling.style.display = "none";
+            var typedHeader2 = new Typed('#typed-header-2', {
+                strings: ['API'], typeSpeed: 50, cursorChar: '_', onComplete: (self) => {
+                    document.getElementById("typed-header-2").nextElementSibling.style.display = "none";
+                    var typedHeader3 = new Typed('#typed-header-3', {
+                        strings: ['Platform'], typeSpeed: 50, cursorChar: '_',});
+                }
+            });
+        }
+    });
+
+</script>

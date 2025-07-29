@@ -1,0 +1,404 @@
+---
+# In order to import this stlye, import it with 'require: api-reference' in the page front matter.
+---
+
+$get-color: #61affe;
+$get-light-color: #61b0feda;
+$set-color: #4aad81;
+$set-light-color: #4aad81da;
+$subscribe-color: #be9046;
+$subscribe-light-color: #be9046da;
+
+
+
+.content .notification.page-disclaimer {
+    margin-top: 3rem;
+}
+
+.bd-anchors-list li.is-past a, .bd-category-list li.is-past a, .bd-anchors-list li.is-current a, .bd-category-list li.is-current a{
+    color: #131313;
+}
+
+.bd-back-to-ref {
+    display: flex;
+    align-items: center;
+}
+
+hr {
+    margin: 3rem 0;
+}
+
+
+
+.reference-domain {
+    
+    margin-top: 8rem;
+    
+    .reference-domain-name {
+        color: #323a58;
+        width: 100%;
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 0;
+        border-bottom: 2px solid #1e2336;
+        padding-bottom: 1rem;
+    }
+
+}
+
+
+.apis {
+    margin: 0rem 1rem;
+}
+
+.api-title{
+    
+    margin-top: 2rem;
+    border-bottom: 1px solid grey;
+
+    .api-name {
+        display: block;
+        padding-top: 5rem;
+        margin-top: calc(-5rem + 13px);
+        font-weight: 500;
+        font-size: 1.25rem;
+    }
+    .api-requirement {
+        font-weight: 400;
+    }
+    .api-type {
+        color: #323a58;
+        border: none;
+    }
+
+    &:hover {
+        background-color: inherit;
+    }
+    .api-header {
+        border-bottom: none;
+    }
+}
+
+.api:not(.api-title) {
+    position: relative;
+    z-index: 2;
+}
+
+.api-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgrey;
+}
+
+.api:last-of-type .api-header {
+    border-bottom: none;
+}
+
+.api-name, .api-available {
+    padding: 13px 20px;
+}
+
+.api-available{
+    padding-left: 0px;
+    .api-requirement {
+        font-size: .9rem;
+        .icon {
+            width: 13px;
+            i {
+                font-size: .7rem;
+            }
+    }
+    }
+}
+
+.api-header-domain{
+    .api-name {
+        font-size: 1.3rem;
+    }
+}
+
+.api-type, .api-api {
+    cursor: default;
+    .api-type-text {
+        text-decoration: none;
+    }
+    .api-type {
+        border-color: inherit;
+        color: inherit;
+    }
+}
+
+.api-verb-get:hover  {
+    background-color:  $get-color;
+    border-color:  $get-color;
+    color: white;
+}
+    
+.api-verb-set:hover {
+    background-color: $set-color;
+    border-color: $set-color;
+    color: white;
+}
+
+.api-verb-subscribe:hover {
+    background-color: $subscribe-color;
+    border-color: $subscribe-color;
+    color: white;
+}
+
+.api-name {
+    font-size: 1rem;
+    font-weight: 400;
+    width: 100%;
+    display: block;
+    
+    em {
+        font-weight: 400;
+        font-size: .8rem
+    }
+    &:hover {
+        color: #2689b5;
+        cursor: pointer;
+    }
+
+    .api-subname {
+        line-height: 1;
+    }
+}
+
+.api-header-icon-link {
+    display: none;
+    font-size: .75rem;
+    margin-left: .25rem;
+    color: #2689b5;
+}
+.api-name:hover + .api-header-icon-link {
+    display: block;
+
+}
+
+
+.api-name, .api-requirement, .api-content {
+    color: #323a58;
+}
+
+.api-requirement  {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 0;
+    margin-right: 40px;
+}
+
+
+.api-available{
+    display:flex;
+    align-items: center;
+    .icon i {
+        font-size: .65rem;
+    }
+}
+
+.api-types{
+    display:flex;
+    width: 305px;
+    justify-content: space-around;
+}
+
+.api-type {
+    font-size: 0.85rem;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 83px;
+    background-color: transparent;
+    border-width: 1px;
+    border-style: solid;
+    height: 2em;
+    font-weight: 400;
+    .icon { 
+        font-size: 0.75rem;
+        display: none
+    }
+    .api-type-text {
+        font-size: 0.80rem;
+    }
+    &:hover {
+        .icon {
+            display: flex;
+        }
+    }
+}
+
+.api-type.api-verb-unavailable {
+    cursor: not-allowed;
+}
+.api-verb-get {
+    border-color:  $get-light-color;
+    color: $get-color;
+}
+
+.api-verb-set, .api-verb-api, .api-verb-api:hover {
+    border-color: $set-light-color;
+    color:  $set-color;
+}
+
+.api-verb-subscribe, .api-verb-event, .api-verb-event:hover {
+    border-color: $subscribe-light-color;
+    color: $subscribe-color;
+}
+
+
+
+.api-verb-subscribe, .api-verb-set, .api-verb-get {
+    cursor: pointer;
+}
+
+.api-verb-unavailable {
+    background-color: transparent;
+    color: lightgrey;
+    border-color: lightgrey;
+    &:hover {
+        color: lightgrey;
+    }
+}
+
+.dropdown-api{
+    height: 0;
+    overflow: hidden;
+}
+
+
+@media screen and (max-width: 1500px) {
+    .api.is-open {
+        .privacy-name {
+            display: none;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 1180px) {
+    .reference-domain .reference-domain-name {
+        font-size: 1.35rem;
+    }
+    .api-name {
+        font-size: .9rem;
+    }
+    .api-types {
+        width: 230px;
+        .api-type {
+            width: 65px;
+            .api-type-text {
+                font-size: .65rem;
+            }
+            .icon {
+                display: none;
+            }
+        }
+    }
+
+    .api-title {
+        .api-name {
+            font-size: 1rem;
+        }
+    }
+    
+}
+
+
+@media screen and (max-width: 690px) {
+    .reference-domain .reference-domain-name {
+        font-size: 1.25rem;
+    }
+    .api-name {
+        font-size: .75rem;
+    }
+    .api-types {
+        width: 180px;
+        .api-type {
+            width: 55px;
+            .api-type-text {
+                font-size: .6rem;
+            }
+        }
+    }
+    .api-available{
+        .api-requirement {
+            font-size: .8rem;
+            margin-right: 5px;
+            .icon {
+                width: 13px;
+                i {
+                    font-size: .6rem;
+                }
+        }
+        }
+    }
+    
+}
+
+
+@media screen and (max-width: 500px) {
+    .reference-domain .reference-domain-name {
+        font-size: 1rem;
+    }
+    .api-header {
+        padding: .65rem 7.5%;
+        display: block;
+        
+        .api-name {
+            margin-bottom: .4rem;
+        }
+        
+        .api-available {
+            justify-content: space-between;
+        }
+    }
+
+    .api-content-header {
+        // justify-content: flex-end;
+        float: right;
+        padding: .75rem .25rem 0;
+    }
+    
+    .api-name {
+        font-size: .75rem;
+    }
+    .api-types {
+        width: 180px;
+        .api-type {
+            width: 55px;
+            .api-type-text {
+                font-size: .6rem;
+            }
+        }
+    }
+    .api-available{
+        .api-requirement {
+            font-size: rem;
+            margin-right: 5px;
+            .icon {
+                width: 13px;
+                i {
+                    font-size: .6rem;
+                }
+        }
+        }
+    }
+
+
+    .api-title {
+        .api-name {
+            font-size: .85rem;
+        }
+    }
+    
+    .api-name, .api-available {
+        padding: 0;
+        margin: 0;
+    }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "pg4d_script",
+  "version": "1.0.0",
+  "description": "scripts for pg4d automation",
+  "main": "converter.js",
+  "dependencies": {
+    "ajv": "^8.6.3",
+    "jison": "^0.1.0",
+    "gray-matter": "^4.0.3",
+    "jsonpath": "^0.1.0",
+    "raml-to-swagger": "^0.1.0",
+    "node-fetch": "^2.6.1",
+    "yaml-front-matter": "^4.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

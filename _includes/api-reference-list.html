@@ -1,0 +1,191 @@
+{% if page.section == "webportal" and page.subsection == "v1" %}
+  {% assign buttonsTypes = "api event" | split: " " %}
+{% else %}
+  {% assign buttonsTypes = "get set subscribe" | split: " " %}
+{% endif %}
+
+<div
+  class="apis"
+>
+
+  {% if 
+      include.type == "feature-title" 
+      and include.sdk_name == "mobile-sdk" 
+  %}
+  <div class="api api-title">
+    <div class="api-header">
+      <a 
+        class="api-name"
+        id="domain-{{ component.name | replace: '.', '-' | remove: '()'}}"
+        href="#domain-{{ component.name | replace: '.', '-' | remove: '()'}}"
+      >
+        {{component.name}}
+      </a>
+    </div>
+  </div>
+  {% endif %}
+
+{% for api in include.apis | where: include.whereKey, include.whereValue %}
+
+  {%- comment -%} DOMAIN {%- endcomment -%}
+  {% if api.type == "domain" or api.type == "class" %}
+  <div class="api api-title">
+    <div class="api-header">
+      <a 
+      class="api-name" 
+      id="domain-{{ api.name | replace: '.', '-' | remove: '()'}}"
+      href="#domain-{{ api.name | replace: '.', '-' | remove: '()'}}"
+      >
+      {{api.name}}
+        {%- if include.sdk_name == "webportalv2" or include.sdk_name == "webportalv1" -%}
+        .*
+        {%- endif -%}
+      </a>
+    </div>
+  </div>
+  {%- comment -%} END DOMAIN {%- endcomment -%}
+
+  {% elsif api.name %}
+  {%- comment -%} API {%- endcomment -%}
+  <div class="api">
+    {%- comment -%} API HEADER {%- endcomment -%}
+    <div 
+      class="api-header"
+    >
+      <a 
+        class="api-name" 
+        href="{{site.baseurl}}{{api.url}}#article"
+      >
+        <div>
+          {{api.name}}
+        </div>
+        <div class="api-subname">
+          {% if api.subname %}<em>&nbsp;-&nbsp;{{api.subname}}</em>{% endif %}
+        </div>
+      </a>
+      <div class="api-available">
+        
+      {%- comment -%} REQUIREMENT {%- endcomment -%}
+
+      {%- comment -%} PRIVACY {%- endcomment -%}
+      {% if include.sdk_name == "webportalv2" %}
+        <div
+          class="api-requirement"
+        >
+          {% if api.availability == "sdkOnly" %}
+          <span 
+            title="Only available in SDK" 
+            class="icon is-white"
+            style="margin-right: 1rem"
+            >
+            <i class="fas fa-exclamation-circle"></i>
+          </span>
+          {% endif %}
+          {% if api.privacy == "Full Private" %}
+          <span title="Geolocation & Data are required" class="icon is-white">
+            <i class="fas fa-long-arrow-alt-down"></i>
+            <i class="fas fa-long-arrow-alt-up"></i>
+          </span>
+          <span title="Geolocation & Data are required" class="icon is-white">
+            <i class="fas fa-map-marker-alt"></i>
+          </span>
+          {% elsif api.privacy == "Geolocation Private" %}
+          <span title="Geolocation is required" class="icon is-white">
+            <i class="fas fa-map-marker-alt"></i>
+          </span>
+          {% elsif api.privacy == "Public" %}
+          <span title="No requirements!" class="icon is-white">
+            <i class="fas fa-lock-open"></i>
+          </span>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% if include.sdk_name == "webportalv1" and api.type == "api" %}
+        <div
+        class="api-requirement"
+        >
+        {% if api.privacy == "Geoloc" %}
+        <span title="Geolocation is required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        {% elsif api.privacy == "Public" %}
+        <span title="No requirements!" class="icon is-white">
+          <i class="fas fa-lock-open"></i>
+        </span>
+        {% else %}
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {%- comment -%} END PRIVACY {%- endcomment -%}
+
+        {%- comment -%} SECURITY {%- endcomment -%}
+        {%- if include.sdk_name == "mobile-sdk" -%}
+          {%- for component in site.data.mobile-sdk-components -%}
+          {%- if include.component.tag == component.tag -%}
+            {%- if component.security == "none" or api.security == "none" -%}
+            <div
+             class="api-requirement"
+             title="Authentication is not required"
+            >
+              <span class="icon is-white">
+                <i class="fas fa-lock-open"></i>
+              </span>
+            </div>
+            {% elsif component.security == "authentication" or component.security == "subscription" or api.security == "authentication" or page.securtiy == "subscription" %}
+            <div
+             class="api-requirement"
+             title="Authentication is required"
+            >
+              <span class="icon is-white">
+                <i class="fas fa-lock"></i>
+              </span>
+            </div>
+            {% endif %}
+          {% endif %}
+          {% endfor %}
+        {% endif %}
+        {%- comment -%} END SECURITY {%- endcomment -%}
+
+      {%- comment -%} END REQUIREMENT {%- endcomment -%}
+
+        {%- comment -%} VERBS {%- endcomment -%}
+        <div class="api-types">
+          {% for buttonType in buttonsTypes %}
+          <a 
+            {% if api.type contains buttonType %}
+            href="{{site.baseurl}}{{api.url}}.html#{{buttonType}}"
+            {% endif %}
+            class="
+              {{"api-type" | append: " "}} 
+              {%- if api.type contains buttonType -%} api-verb-{{buttonType}} 
+              {%- else -%} api-verb-unavailable {%- endif -%}
+            "
+          >
+            <span class="api-type-text">
+              {% if buttonType == "api" %}
+              Method
+              {% else %}
+              {{buttonType|capitalize}}
+              {% endif %}
+            </span>
+          </a>
+          {% endfor %}
+        </div>
+        {%- comment -%} END VERBS {%- endcomment -%}
+
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {%- comment -%} END API {%- endcomment -%}
+
+{% endfor %}
+</div>

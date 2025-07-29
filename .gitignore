@@ -1,0 +1,12 @@
+*.gem
+.bundle
+.idea
+.sass-cache
+.jekyll-metadata
+_site
+Gemfile.lock
+.jekyll-cache
+.tool-versions
+node_modules/
+*node_modules/*
+~$*

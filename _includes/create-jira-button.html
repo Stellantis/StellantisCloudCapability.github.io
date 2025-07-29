@@ -1,0 +1,64 @@
+{%- capture ticketName -%}
+  {%- comment -%} --- All Buttons --- {%- endcomment -%}
+  [{{page.section | upcase }}
+    {%- if page.subsection -%}-{{page.subsection | upcase }}{%- endif -%}
+    {%- if page.categorie -%} - {{page.categorie}}{%- endif -%}]
+
+  {%- comment -%} --- Dedicated page API --- {%- endcomment -%}
+    {%- if page.layout == "api-reference" and include.type -%} 
+      {{ page.name | prepend: " "}} 
+      {%- if page.subname -%} - {{page.subname}} {%- endif -%}
+  {%- comment -%} --- Anchor API or Event in List --- {%- endcomment -%}
+    {%- elsif page.layout != "api-reference" and include.ref_name -%} 
+      {{include.ref_name | prepend: ' ' }}
+      {%- if include.ref_subname -%} 
+        - {{include.ref_subname}}
+      {%-endif-%}
+  {%- comment -%} --- Regular PAGE --- {%- endcomment -%}
+    {%- else -%} {{page.title | prepend: " "}}
+    {%- endif -%}
+
+{%- endcapture -%}
+
+{%- capture ticketDescription -%}
+  {%- comment -%} --- All Buttons --- {%- endcomment -%}
+  {{include.type | upcase }} Link: {{site.url}}{{site.baseurl}}{{page.url}}
+  
+  {%- comment -%} --- Dedicated page API --- {%- endcomment -%}
+  {%- if page.layout == "api-reference" and include.ref_name -%}
+    #{{include.api_type}}
+  
+  {%- comment -%} --- Anchor API or Event in List --- {%- endcomment -%}
+  {%- elsif page.layout != "api-reference" and include.ref_name -%}
+    #{{include.type}}-{{{include.ref_name | replace: '.', '-' }}{%- if include.ref_subname -%}-{{include.ref_subname | slugify }}{%- endif -%}
+  {%- endif -%}
+
+{%- endcapture -%}
+{%- capture ticketComponent -%}
+  {%- if page.section == "webapi" and page.subsection == "b2b" -%}
+  {%- comment -%} Web API B2B {%- endcomment -%}191184
+  {%- elsif page.section == "webapi" and page.subsection == "b2c" -%}
+  {%- comment -%} Web API B2C {%- endcomment -%}191186
+  {%- elsif page.section == "webportal" and page.subsection == "v1" -%}
+  {%- comment -%} WebPortal v1 (NAC) {%- endcomment -%}191182
+  {%- elsif page.section == "webportal" and page.subsection == "v2" -%}
+  {%- comment -%} WebPortal v2 (IVI) {%- endcomment -%}191183
+  {%- elsif page.section == "mobile-sdk" -%}
+  {%- comment -%} Mobile SDK (PIMPS) {%- endcomment -%}191187
+  {%- else if page.section == "connected-vehicles" or true -%}
+  {%- comment -%} Website {%- endcomment -%}191188
+  {%- endif -%}
+{%- endcapture %}
+<a
+  href='https://jira-it2.mpsa.com/secure/CreateIssueDetails!init.jspa?pid=54650&summary={{ticketName | url_encode }}&issuetype=10401&assignee=e570958&priority=4&description={{ticketDescription | url_encode}}&components={{ticketComponent | url_encode}}'
+  class="button edit-page icon-button is-outlined is-pulled-right {%if include.small_button %}is-small{%endif%}"
+  target="_blank"
+  title="Create Jira ticket about this page"
+>
+  <span class="icon">
+    <i class="fab fa-jira"></i>
+  </span>
+  <span class="edit-page-text">
+    Jira
+  </span>
+</a>

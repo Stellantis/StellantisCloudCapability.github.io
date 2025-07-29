@@ -1,0 +1,284 @@
+- version: "1.0.28"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 28 July 2025
+  description: |-
+      **createdAt, updatedAt & Delete Action Updates**
+      - createdAt and updatedAt added to all channel resources
+      - Delete action type added to remote preconditioning programs
+- version: "1.0.27"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 21 July 2025
+  description: |-
+      **Trip API & Deferred Charge Updates**
+      - Trips API updated with mandatory vs optional fields
+      - End added to deferred charge section
+- version: "1.0.26"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 10 July 2025
+  description: |-
+      **Deferred Charge Updates**
+      - Deferred charge block added to remote charging command.
+      - Telemetry API updated to add deferred charge details to charging block
+- version: "1.0.25"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 20 June 2025
+  description: |-
+      **Collision Updates**
+      - Updated collision object.
+      - Added new field "unlockRequested".
+      - Added two new side enums
+- version: "1.0.24"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 6 June 2025
+  description: |-
+      **Telemetry, Charging, Channel, and Trip API Updates**
+      - Mandatory vs optional fields updated for telemetry end point
+      - Temp removed from charging programs as temp is not supported for remote charging programs
+      - For channel creation, push notification attributes marked mandatory
+      - Offroad/speed violation option taken out from trip waypoints end point
+- version: "1.0.23"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 23 May 2025
+  description: |-
+      **Telemetry and Trip API**
+      - Telemetry & Trip response updated with mandatory vs optional fields
+      - Example for Push Notification Attribute updated as per the Schema
+      - Debug field marked as mandatory in error response
+- version: "1.0.22"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 02 May 2025
+  description: |-
+      **Channel and Monitor API**
+      - Timing example updated in timestamps parameter
+      - Modified description for Update channel
+      - Corrected spelling mistake for Monitor Attribute
+- version: "1.0.21"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 25 Apr 2025
+  description: |-
+      **Channel and Monitor API**
+      - Channel Attributes can have type only as header/query
+      - Remote/Monitor attributes can have type only as Body
+      - $vin replaced with $Vin for specifying VIN in attributes for channel/remote/monitor
+- version: "1.0.20"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 11 Apr 2025
+  description: |-
+      **Capabality and Monitor API**
+      - Temperature field added to preconditioning in capability API
+      - TAN remote action support
+      - Add fleet support as group handle to Monitor handle
+      - Example for Time Trigger entry fixed to match the object definition
+- version: "1.0.19"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 04 Apr 2025
+  description: |-
+      **Trip and Telemetry API**
+      - Locale parameter removed from trips alert end point
+      - Powertrain added to latest telemetry response
+- version: "1.0.18"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 28 Mar 2025
+  description: |-
+      **Vehicle API**
+      - Temperature added to programs section for remote preconditioning
+      - Description updated for devices for Push Notification. APIM will not allow Device to be empty string
+      - AuthorizationError added to existing enums of Remote Command Failure
+      - Type field in web socket attribute will not have default value
+      - Added extended event params support while sending remote commands to vehicle
+- version: "1.0.17"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 14 Mar 2025
+  description: |-
+      **Trip API**
+      - AverageConsumption and sub type added to energy block under stats in Trips API
+      - Updated text for pageSize and indexRange. 400 will be returned if these parameters are sent in request along with pageToken
+- version: "1.0.16"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 28 Feb 2025
+  description: |-
+      **Vehilcle API and Trip API**
+      - On Board capability API exposition
+      - Support remote end time charging
+      - Two new end points to provide charging history
+      - Kinetic element restructuring in Trip end point
+      - Extended event params alignment and renaming for monitors
+      - Added Eco coaching API
+- version: "1.0.15"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 17 Feb 2025
+  description: |-
+      **Trip API**
+      - removed offroad and boundary from kinetics filter for get trips API
+- version: "1.0.14"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 31 Jan 2025
+  description: |-
+      **Telemetry API**
+      - Alert structure update for telemetry to be in SYNC with latest telemetry
+      - createdAt date added at root level of telemetry
+- version: "1.0.13"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 23 Jan 2025
+  description: |-
+      **Vehicle API**
+      - Removed Vehicle Config remote command as Digital key related APIs are not supported by APIM
+- version: "1.0.12"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 17 Jan 2025
+  description: |-
+      **Trip API and Telemetry API**
+      - Added recurrence field to time trigger for creating monitor
+      - Added new entries to door state enum
+      - Remove Ecocoaching & Offroad as trip types from trip filter
+- version: "1.0.11"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 15 Dec 2024
+  description: |-
+      **Trip API**
+      - Removed Unused APIs
+      - Removed paging parameters from API to get specific trip details.
+- version: "1.0.10"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 10 Nov 2024
+  description: |-
+      **Telemetries and LatestTelemetries APIs**
+      - PreconditioningProgram: temperature (temp) and startCondition (startCond) added; slot and occurrence marked as required
+      - Updated Alerts structure to add report and active alerts
+- version: "1.0.9"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 20 Nov 2024
+  description: |-
+      **Remote API**
+      - Remove offroad from trip Kinetic & tripContext.
+      - Marked minChargingLevel & maxChargingLevel as mandatory.
+        - Updated trip type to only support normal trip type.
+- version: "1.0.8"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 25 Oct 2024
+  description: |-
+      **Remote API**
+      - Remote Charging text update to accept only one of immediate/program/settings
+      - Fields marked mandatory in remote charging command for program section
+      - Remote Preconditioning text update to accept only one of immediate/program/settings.
+      - Removed Eco Coaching related APIs and from trips response
+      - Tracking period removed from stolen remote command
+      - Extended Event Params removed from Remote Command
+      - UpdatedAt field added to latest telemetry API response
+      - Sort spelling correction
+      - minChargingLevel & maxChargingLevel added to Remote Charging Programs
+- version: "1.0.7"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 17 Oct 2024
+  description: |-
+      **Remote API**
+      - Remote Preconditioning mark mandatory fields
+      - Remote Charging marking mandatory fields
+      - Remote navigation update field data type of placeId/postalCode from string to int
+      - Update description of remote charging
+      - Removed additional fields from Remote Navigation Object
+- version: "1.0.6"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 10 Oct 2024
+  description: |-
+      **Trip API**
+      - Add startEnergy/endEnergy/startMileage to trips response
+      - Trigger parameters updated to support Digital Key & Last mile navigation
+      - Devices marked as mandatory for push notif section while creating channel
+- version: "1.0.5"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 27 Sep 2024
+  description: |-
+      **Vehicles API**
+      - Updated state field from boolena to string for preconditioning
+      - Corrected spelling mistake of enum value from confort to comfort in driving behavior
+      - Updated description for create monitor & create channel to provide information on max channel & monitor to be created
+      - Added field updatedAt for get monitor by Id end point
+      - A channel wouldn't be allowed to delete  if its attached remotes are in pending state or monitors in running state.
+- version: "1.0.4"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 17 Sep 2024
+  description: |-
+      **Monitor and Telemetry API**
+      - Corrected type from occurence to occurrence
+      - Added createdAt and updatedAt in POST and PUT in monitor APIs respectively
+      - Tire Status removal from Telemetry Enum
+- version: "1.0.3"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 17 Aug 2024
+  description: |-
+      **Vehicles API**
+      - Added pnc Scope for B2B2C to be able to retrieve pcid/mac address information
+      - Add pageSize,  pageToken, timestamp and indexRange as query parameters for stolen waypoints end point-
+      - Removed TripContext from position object for end points supporting stolen feature
+        - /accounts/vehicles/{id}/stolen/{sid}/waypoints
+        - /accounts/vehicles/{id}/stolen/{sid}
+        - /accounts/vehicles/{id}/stolen
+      - Added mac address to devices object to be used for auto charge feature
+      - Latest telemetry Energy Charging block
+        - Removed Charge Schedule
+        - Renamed chargingRate field to chargingSpeed
+        - programs and settings moved out of schedule and put into root level
+        - Removed type field  as it was redundant with ChargeLimit
+- version: "1.0.2"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 20 Jul 2024
+  description: |-
+      **Vehicles API**
+      - API changes to expose pcid information for PnC
+      - Fixed data trigger op issues
+      - Removed Remote.action.locking.identifier
+      - Removed Remote.action.locking.identifier
+      - Removed Remote.action.locking.identifier
+      - Removed Remote.action.locking.identifier
+      - Removed Remote.action.locking.identifier
+      - Removed Remote.action.locking.identifier
+      - Removed Remote.action.Ignition
+      - Removed Remote.action.panic
+      - Removed Remote.action.preconditioning.airConditioning.immediate.identifier
+      - Removed Remote.action.preconditioning.airConditioning.schedules.programs.duration
+      - Removed Remote.action.preconditioning.airConditioning.schedules.programs.recurrence
+      - Removed Remote.action.preconditioning.airConditioning.schedules.programs.scheduleType
+      - Removed Remote.action.preconditioning.airConditioning.schedules.programs.config.batterySaver
+      - Removed Modified airConditioning to have only immediate, programs and settings
+      - Removed Remote.action.charging.charge.programs.scheduleType
+      - Removed Remote.action.charging.charge.programs.recurrence
+      - Removed Modified charging to have only immediate, programs and settings
+      - Removed Remote.action.navigation
+      - Removed Remote.action.vehicleFinder
+      - Removed action query string
+- version: "1.0.1"
+  availability: in_use
+  release_date_prod: Not Released
+  release_date_preprod: 10 Aug 2024
+  description: |-
+      **Vehicles API**
+      - API changes to expose pcid information for PnC
+      - Fixed data trigger op issues

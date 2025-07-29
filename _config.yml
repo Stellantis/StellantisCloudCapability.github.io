@@ -1,0 +1,53 @@
+# name of the software
+title: Stellantis API portal
+name: Stellantis API portal
+description: Converged API specifications for the multi generation Stellantis vehicle family .
+baseurl: "/mph05/ApiSpec" # the subpath of the site, e.g. /blog
+
+# doc versionning
+doc-version: "1.0.0"
+
+exclude:
+ - webapi/content/
+ - "node_modules/"
+ - "*.gemspec"
+ - "*.gem"
+ - "Gemfile"
+ - "Gemfile.lock"
+ - "package.json"
+ - "package-lock.json"
+ - "script/"
+ - "schema/"
+ - "LICENSE.txt"
+ - "lib/"
+ - "bin/"
+ - "README.md"
+ - "Rakefile"
+
+plugins:
+  - jekyll-redirect-from
+
+links:
+  header:
+  footer:
+
+ui:
+  header:
+      color1: "#080331"
+      color2: "#673051"
+
+social:
+
+analytics:
+
+# Build settings
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+# highlighter: rouge
+
+permalink: pretty
+
+# Enable or disable the site search
+search_enabled: false

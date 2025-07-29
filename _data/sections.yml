@@ -1,0 +1,217 @@
+- tag: Connected Vehicles
+  path: /connected-vehicles/
+  name: Connected Vehicles
+  icon: fas fa-wifi
+  subsections:
+    - tag: overviews
+      path: overview/
+      name: Overview
+      nameUpcase: OVERVIEW
+      categories:
+        - name:
+          path:
+          pages:
+            - name: About
+              path: about/
+            - name: Remotes Control
+              path: remotes-control/
+            - name: Monitoring & Notification
+              path: monitoring-notification/
+
+        # - tag: datacatalog
+    #   path:
+    #   name: datacatalog
+    #   nameUpcase: DATA CATALOGUE
+    #   categories:
+    #     - name:
+    #       path:
+    #       pages:
+    #         - name: Sheet
+    #           path: sheet/
+
+- tag: specifications
+  path: /specifications/
+  name: Cloud API
+  icon: fas fa-cloud
+  subsections:
+    # - tag: vehicle-iot
+    #   path: vehicle-iot/
+    #   name: VEHICLE IOT
+    #   nameUpcase: VEHICLE IOT
+    #   categories:
+    #     - name: Overview
+    #       path: overview/
+    #       pages:
+    #         - name: About
+    #           path: about/
+    #         - name: End User API's
+    #           path: end-user/
+    #         - name: System API's
+    #           path: system-specs/
+    - tag: data-treatment
+      path: data-treatment/
+      name: Data treatment
+      nameUpcase:
+      categories:
+        - name: Overview
+          path: overview/
+          pages:
+            - name: About
+              path: about/
+            - name: API Concepts
+              path: api-concepts/
+            - name: Errors & Rate Limit
+              path: errors/
+            - name: Data Scope
+              path: data-scope/
+        -   name: Monitor
+            path: monitor/
+            pages:
+                -   name: About Monitors
+                    path: about-monitors/
+                -   name: Set Up
+                    path: set-up/
+                -   name: Retry Policy
+                    path: retry-policy/
+                -   name: Server Specification
+                    path: server-specification/
+        -   name: Remote
+            path: remote/
+            pages:
+                -   name: About Remotes
+                    path: about-remotes/
+                -   name: Set Up
+                    path: set-up/
+                -   name: Retry Policy
+                    path: retry-policy/
+                -   name: Notifications and Errors
+                    path: notifications-and-errors/
+                -   name: Server Specification
+                    path: server-specification/
+        - name: Partners
+          path: quickstart/b2b/
+          pages:
+              - name: Authentication
+                path: auth/
+              - name: Examples
+                path: examples/
+        - name: ExVe (Extended Vehicle)
+          path: quickstart/b2b2c/
+          pages:
+              - name: Authentication
+                path: about-authentication/
+              - name: Data Availability and Scopes
+                path: data-availability-scopes/
+              - name: App Registration
+                path: app-registration/
+              - name: Enroll End-Users
+                path: enroll-end-users/
+              - name: Access End-User Data
+                path: acess-end-user-data/
+              - name: End-User Journey
+                path: end-user-journey/
+              - name: Request Examples
+                path: request-examples/
+        - name: API Reference
+          pages:
+              - name: API Reference
+                path: api-reference/
+              - name: API Changelog
+                path: changelog/
+
+
+#    - tag: notification-center
+#      path: notification-center/
+#      name: Notification center
+#      nameUpcase: NOTIFICATION CENTER
+#      categories:
+#        - name: Overview
+#          path: overview/
+#          pages:
+#            - name: About
+#              path: about/
+#            - name: End User API's
+#              path: end-user/
+#            - name: Change Log
+#              path: changelog/
+    # - tag: device-management
+    #   path: device-management/
+    #   name: Device management
+    #   nameUpcase: DEVICE MANAGEMENT
+    #   categories:
+    #     - name: Overview
+    #       path: overview/
+    #       pages:
+    #         - name: About
+    #           path: about/
+    #         - name: End User API's
+    #           path: end-user/
+    #         - name: System API's
+    #           path: system-specs/
+    #         - name: Change Log
+    #           path: changelog/
+    # - tag: subscription
+    #   path: subscription/
+    #   name: Subscription, Commercial Capabilities, Management
+    #   nameUpcase: Subscription, Commercial Capabilities, Management
+    #   categories:
+    #     - name: Overview
+    #       path: overview/
+    #       pages:
+    #         - name: About
+    #           path: about/
+    #         - name: End User API's
+    #           path: end-user/
+    #         - name: System API's
+    #           path: system-specs/
+    #         - name: Change Log
+    #           path: changelog/
+    # - tag: abc
+    #   path: abc/
+    #   name: a b c
+    #   nameUpcase: A B C
+    #   categories:
+    #     - name: Overview
+    #       path: overview/
+    #       pages:
+    #         - name: About
+    #           path: about/
+    #         - name: End User API's
+    #           path: end-user/
+    #         - name: System API's
+    #           path: system-specs/
+    #         - name: Change Log
+    #           path: changelog/
+    # - tag: api-expo
+    #   path: api-expo/
+    #   name: API exposition, Authz and Notification center
+    #   nameUpcase: API exposition, Authz and Notification center
+    #   categories:
+    #     - name: Overview
+    #       path: overview/
+    #       pages:
+    #         - name: About
+    #           path: about/
+    #         - name: End User API's
+    #           path: end-user/
+    #         - name: System API's
+    #           path: system-specs/
+    #         - name: Change Log
+    #           path: changelog/
+- tag: other
+  path: /
+  name: Other
+  icon:
+  subsections:
+    - tag: other
+      path:
+      name:
+      nameUpcase:
+      categories:
+        - name: other
+          path:
+          pages:
+            - name: Contact Us
+              path: contact-us/
+            - name: Changelog
+              path: changelog/

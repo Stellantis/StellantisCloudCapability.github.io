@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Error | Overview | Specifications DATA-TREATMENT</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Error | Overview | Specifications DATA-TREATMENT">
+    <meta property="og:url" content="/mph05/ApiSpec/specifications/data-treatment/overview/errors/">
+    <meta property="og:image" content="/mph05/ApiSpec/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis API portal">
+    <meta property="og:description" content="Stellantis API for CIOT platform.">
+    <link rel="icon" type="image/png" href="/mph05/ApiSpec/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Error | Overview | Specifications DATA-TREATMENT">
+    <meta name="twitter:description" content="Stellantis API for CIOT platform.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Stellantis API for CIOT platform." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="/mph05/ApiSpec/specifications/data-treatment/overview/errors/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/mph05/ApiSpec/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS --><!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/mph05/ApiSpec/assets/js/dropdown.js"></script>
+    <script src="/mph05/ApiSpec/assets/js/main.js"></script>
+<body>
+    <section class="hero hero-header is-medium hero_api">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/mph05/ApiSpec/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/mph05/ApiSpec/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/mph05/ApiSpec/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/mph05/ApiSpec/connected-vehicles/overview/#article" class="navbar-item dropdown-title " id="overviews" onclick="navClick(document.getElementById('overviews'), 'overviews');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overviews" class=" navbar-item " href="/mph05/ApiSpec/connected-vehicles/overview/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overviews" class=" navbar-item " href="/mph05/ApiSpec/connected-vehicles/overview/remotes-control/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overviews" class=" navbar-item " href="/mph05/ApiSpec/connected-vehicles/overview/monitoring-notification/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/mph05/ApiSpec/specifications/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Cloud API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/mph05/ApiSpec/specifications/data-treatment/#article" class="navbar-item dropdown-title is-default is-active" id="data-treatment" onclick="navClick(document.getElementById('data-treatment'), 'data-treatment');">
+                                <span>
+                                    
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-down" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="data-treatment" class=" is-default-subsection  navbar-item is-active" href="/mph05/ApiSpec/specifications/data-treatment/overview/about/#article">
+                                        Overview
+                                    </a><a id="data-treatment" class=" is-default-subsection  navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/monitor/about-monitors/#article">
+                                        Monitor
+                                    </a><a id="data-treatment" class=" is-default-subsection  navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/remote/about-remotes/#article">
+                                        Remote
+                                    </a><a id="data-treatment" class=" is-default-subsection  navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b/auth/#article">
+                                        Partners
+                                    </a><a id="data-treatment" class=" is-default-subsection  navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/about-authentication/#article">
+                                        ExVe (Extended Vehicle)
+                                    </a><a id="data-treatment" class=" is-default-subsection  navbar-item is-active" href="/mph05/ApiSpec/specifications/data-treatment/api-reference/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/mph05/ApiSpec/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+
+        function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+        document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+        document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title">API</h1>
+            <h2 class="title">Specifications</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+    <div class="columns is-gapless">
+        <div class="column is-narrow is-hidden-mobile"> 
+            
+            <aside class="menu">
+                <span class="menu-title">
+                    
+                        
+                        
+                        
+                        
+                    
+                        
+                        Cloud API
+                        
+                        
+                        
+                        - Data treatment
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                    
+                </span>
+                                    <p href="/mph05/ApiSpec/specifications/data-treatment/overview/" class='menu-label has-list is-active' id="Overview">
+                                        <span>
+                                            Overview
+                                        </span>
+                                    </p>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/overview/about/#article">
+                                                About 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/overview/api-concepts/#article">
+                                                API Concepts 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="is-active" href="/mph05/ApiSpec/specifications/data-treatment/overview/errors/#article">
+                                                Errors & Rate Limit 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/overview/data-scope/#article">
+                                                Data Scope 
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                    <p href="/mph05/ApiSpec/specifications/data-treatment/monitor/" class='menu-label has-list' id="Monitor">
+                                        <span>
+                                            Monitor
+                                        </span>
+                                    </p>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/monitor/about-monitors/#article">
+                                                About Monitors 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/monitor/set-up/#article">
+                                                Set Up 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/monitor/retry-policy/#article">
+                                                Retry Policy 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/monitor/server-specification/#article">
+                                                Server Specification 
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                    <p href="/mph05/ApiSpec/specifications/data-treatment/remote/" class='menu-label has-list' id="Remote">
+                                        <span>
+                                            Remote
+                                        </span>
+                                    </p>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/remote/about-remotes/#article">
+                                                About Remotes 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/remote/set-up/#article">
+                                                Set Up 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/remote/retry-policy/#article">
+                                                Retry Policy 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/remote/notifications-and-errors/#article">
+                                                Notifications and Errors 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/remote/server-specification/#article">
+                                                Server Specification 
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                    <p href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b/" class='menu-label has-list' id="Partners">
+                                        <span>
+                                            Partners
+                                        </span>
+                                    </p>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b/auth/#article">
+                                                Authentication 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b/examples/#article">
+                                                Examples 
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                    <p href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/" class='menu-label has-list' id="ExVe (Extended Vehicle)">
+                                        <span>
+                                            ExVe (Extended Vehicle)
+                                        </span>
+                                    </p>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/about-authentication/#article">
+                                                Authentication 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/data-availability-scopes/#article">
+                                                Data Availability and Scopes 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/app-registration/#article">
+                                                App Registration 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/enroll-end-users/#article">
+                                                Enroll End-Users 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/acess-end-user-data/#article">
+                                                Access End-User Data 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/end-user-journey/#article">
+                                                End-User Journey 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/request-examples/#article">
+                                                Request Examples 
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                    <p href="/mph05/ApiSpec/specifications/data-treatment/" class='menu-label has-list' id="API Reference">
+                                        <span>
+                                            API Reference
+                                        </span>
+                                    </p>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/api-reference/#article">
+                                                API Reference 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/changelog/#article">
+                                                API Changelog 
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    </aside>
+            
+        </div>
+        <main class="column">
+            <div class="content">
+                
+
+<div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+        
+            <span>
+                
+                    Overview - 
+                
+                    Error
+            </span>
+        
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/overview/about/#article" 
+                                                            >
+                                                                About
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/overview/api-concepts/#article" 
+                                                            >
+                                                                API Concepts
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/overview/errors/#article" 
+                                                            selected>
+                                                                Errors & Rate Limit
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/overview/data-scope/#article" 
+                                                            >
+                                                                Data Scope
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Monitor">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/monitor/about-monitors/#article" 
+                                                            >
+                                                                About Monitors
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/monitor/set-up/#article" 
+                                                            >
+                                                                Set Up
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/monitor/retry-policy/#article" 
+                                                            >
+                                                                Retry Policy
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/monitor/server-specification/#article" 
+                                                            >
+                                                                Server Specification
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Remote">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/remote/about-remotes/#article" 
+                                                            >
+                                                                About Remotes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/remote/set-up/#article" 
+                                                            >
+                                                                Set Up
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/remote/retry-policy/#article" 
+                                                            >
+                                                                Retry Policy
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/remote/notifications-and-errors/#article" 
+                                                            >
+                                                                Notifications and Errors
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/remote/server-specification/#article" 
+                                                            >
+                                                                Server Specification
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Partners">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b/auth/#article" 
+                                                            >
+                                                                Authentication
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b/examples/#article" 
+                                                            >
+                                                                Examples
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="ExVe (Extended Vehicle)">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/about-authentication/#article" 
+                                                            >
+                                                                Authentication
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/data-availability-scopes/#article" 
+                                                            >
+                                                                Data Availability and Scopes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/app-registration/#article" 
+                                                            >
+                                                                App Registration
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/enroll-end-users/#article" 
+                                                            >
+                                                                Enroll End-Users
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/acess-end-user-data/#article" 
+                                                            >
+                                                                Access End-User Data
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/end-user-journey/#article" 
+                                                            >
+                                                                End-User Journey
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/request-examples/#article" 
+                                                            >
+                                                                Request Examples
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/api-reference/#article" 
+                                                            >
+                                                                API Reference
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/changelog/#article" 
+                                                            >
+                                                                API Changelog
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+        <a 
+            
+            href="/specifications/content/webapi-overview_errors.md"
+             
+            class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+            target="_blank" 
+            title="Edit this page on GitHub">
+                <span class="icon">
+                    <i  class="fab fa-github"></i> 
+                </span>
+                <span class="edit-page-text">
+                    Edit
+                </span>
+        </a>
+        
+        
+<a
+  href='https://jira-it2.mpsa.com/secure/CreateIssueDetails!init.jspa?pid=54650&summary=%5BSPECIFICATIONS-DATA-TREATMENT-+Overview%5D+Error&issuetype=10401&assignee=e570958&priority=4&description=PAGE+Link%3A+%2Fmph05%2FApiSpec%2Fspecifications%2Fdata-treatment%2Foverview%2Ferrors%2F&components=191188'
+  class="button edit-page icon-button is-outlined is-pulled-right is-small"
+  target="_blank"
+  title="Create Jira ticket about this page"
+>
+  <span class="icon">
+    <i class="fab fa-jira"></i>
+  </span>
+  <span class="edit-page-text">
+    Jira
+  </span>
+</a>
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/mph05/ApiSpec/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/mph05/ApiSpec/specifications/">Cloud API</a>
+            </li>
+            
+            
+            <li>
+                <a href="/mph05/ApiSpec/specifications/data-treatment/">Data treatment</a>
+            </li>
+            
+            
+            <li>
+                <a href="/mph05/ApiSpec/specifications/data-treatment/overview/">Overview</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    Error
+                </a>
+            </li>
+        </ul>
+    </nav></div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = "/mph05/ApiSpec"+e.target.value;
+    });
+
+
+</script>
+                
+                <p>Error codes are returned by all API endpoints when the answer is not HTTP-OK. They are displayed in  by clicking the <strong>default</strong> button on the right side panel.</p>
+      <h2 id="error-message">
+        <span class="bd-anchor-name">
+        
+          Error Message
+                  </span>
+ <a href="#error-message" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>This is the structure of the error message:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BAD_REQUEST"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"debug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERROR_123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid data provided."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">name</code> is a human-readable, unique name for the error. It should be mapped on the server side to ensure consistency.</li>
+  <li><code class="language-plaintext highlighter-rouge">debug</code> is a unique error identifier generated on the server side and logged for correlation purposes. It starts with ERROR_.</li>
+  <li><code class="language-plaintext highlighter-rouge">message</code> is a human-readable message describing the error. This message must be a description of the problem, not a suggestion about how to fix it.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Note:</strong> If you encounter any unexpected error, do not forget to save the error message. Please contact Stellantis support with the error message (name, debug and message), we will be able to investigate this.</p>
+</blockquote>
+    
+      <h2 id="http-error-codes">
+        <span class="bd-anchor-name">
+        
+          HTTP Error Codes
+                  </span>
+ <a href="#http-error-codes" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>This table lists some HTTP error codes and their meaning in the context of this API.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Response Code</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">200</code></td>
+      <td>The request has succeeded and the resource data has been sent.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">202</code></td>
+      <td>The request has been accepted for processing, but not yet acted upon. An id of processing is returned.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">204</code></td>
+      <td>The request has been accepted and there is no additional content.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">400</code></td>
+      <td>Request cannot be processed due to invalid query parameter value of body content (for POST/PUT verbs)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">401</code></td>
+      <td>Unauthorized request due to lack of valid authentication credentials.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">403</code></td>
+      <td>Unauthorized request due to insufficient credentials to grant access.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">404</code></td>
+      <td>Target resource not found.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">500</code></td>
+      <td>Unexpected condition that prevented from fulfilling the reques.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">501</code></td>
+      <td>Feature not supported.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--## Rate Limit
+
+According to your subscription to Stellantis API, they are limited amounts of API calls you can send during a period of time:
+- The **day** limit is a sliding window of 24 hours.
+- The **burst** limit is a maximum of instantaneous requests during an interval of 1 second.
+
+## Prevent Limiting
+
+The rate limit of your subscription should be sized to your need in terms of requests (burst & daily). 
+
+However, it is possible to track your number of remaining call(s) looking at the header of the HTTP response.
+
+```http
+HTTP/1.1 200 OK
+X-RateLimit-Limit-1: 100000
+X-RateLimit-Remaining-1: 90502
+X-RateLimit-Limit-2: 100
+X-RateLimit-Remaining-2: 47
+```
+
+Field Name | Description
+--- | ----
+**X-RateLimit-Limit-1** | Number of calls allowed during the day limit.
+**X-RateLimit-Limit-2** | Number of calls allowed during the burst limit.
+**X-RateLimit-Remaining-1**  | Number of calls remaining before reaching the day limit. Equals to 0 when the limit is reached.
+**X-RateLimit-Remaining-2**  | Number of calls remaining before reaching the burst limit. Equals to 0 when the limit is reached.
+
+## Reaching The Limit
+
+When you reach the limit, you will not be able to receive normal information from the API, you will only receive *HTTP 429* responses with the following HTTP headers:
+
+```http
+HTTP/1.1 429 TOO MANY REQUESTS
+X-RateLimit-Limit-1: 100000
+X-RateLimit-Remaining-1: 90502
+X-RateLimit-Limit-2: 100
+X-RateLimit-Remaining-2: 47
+X-RateLimit-Reset: 1045
+Retry-After: 1045
+```
+
+
+Field Name | Description
+--- | ----
+**X-RateLimit-Limit-1** | Number of calls allowed during the day limit.
+**X-RateLimit-Limit-2** | Number of calls allowed during the burst limit.
+**X-RateLimit-Remaining-1**  | Number of calls remaining before reaching the day limit. Equals to 0 when the limit is reached.
+**X-RateLimit-Remaining-2**  | Number of calls remaining before reaching the burst limit. Equals to 0 when the limit is reached.
+**X-RateLimit-Reset** & **Retry-After**  | Number of second(s) remaining before *X-RateLimit-Remaining* will not be equals to 0 anymore. These fields are displayed only if *X-RateLimit-Remaining* is equals to 0.
+
+Using these headers, you can wait during the *Reset time* before sending another request to the API.
+
+If the rate limit of your subscription does not fit your needs, you should contact Stellantis in order to increase the ratios.
+-->
+                
+            <div>
+        </main>
+        
+        
+        <div class="column is-hidden-touch" id="on-this-page-container">
+            <aside id="on-this-page">
+            
+            
+                <div class="bd-anchors-reference" id="anchorsReference"></div>
+                <nav class="bd-anchors" id="anchors">
+                    <p class="bd-anchors-title">
+                        On this page
+                    </p>
+                    <ul class="bd-anchors-list"></ul>
+            </nav>
+            
+
+            </aside>
+        </div>
+        
+    </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/mph05/ApiSpec/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v1.0.0
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2025
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+     </div>
+    </footer></body>
+</html>

@@ -1,0 +1,29 @@
+---
+layout: simple-article
+permalink: /specifications/catalog/data-catalog/
+section: webapi
+subsection: catalog
+title: Data Catalog
+on_this_page: false
+menu: false
+require: data-catalog
+description: "This table is a data catalog of all info available within Stellantis API."
+redirect_from:
+- /connected-vehicles/data-catalog/
+---
+
+<div id="data-catalog-table"></div>
+
+<script type="module">
+    import {initDataCatalog} from "{{site.baseurl}}/assets/js/data-catalog-ui.js";
+
+    initDataCatalog({
+      // dataCatalogURL: "{{site.baseurl}}/assets/data-catalog.yaml",
+      dataCatalogURL: "https://pages.github.psa-cloud.com/p4d00/data-catalog/data-catalog.yaml",
+      mountElement: "#data-catalog-table",
+      apiUrls: {
+        webapi_b2b_v3: "{{site.baseurl}}/webapi/b2b/api-reference/references/#operation/",
+        webapi_b2c_v4: "{{site.baseurl}}/webapi/b2c/api-reference/references/#operation/"
+      },
+    });
+</script>

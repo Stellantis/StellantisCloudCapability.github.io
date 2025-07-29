@@ -1,0 +1,453 @@
+<div class="notification page-disclaimer">
+  <strong>Note:</strong> This is an exhaustive list of data available in Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall).<br> As explained in <a href="{{site.baseurl}}/connected-vehicles/access-requirements/#article">access requirements</a>, these data are available only if you subscribe to the relevant <em>Connected Vehicle Service</em> scope. <br>Be careful, data may be in different format (string, number etc.) depending on the API & version.<br>
+  Filtering: you can use filters to find data in this catalog. It is possible to use multiple filters together in order to create complex filtering: 
+  <ul>
+    <li><em>Search:</em>  The search bar allows the filter on the name, domain, description, type, unit and value.</li>
+    <li><em>Checkboxes:</em>  You can check one or multiple checkbox in order to filter data available in this API version.</li>
+    <li><em>Dropdown:</em> Select the domain and type of the data you want to filter.</li>
+  </ul>
+</div>
+
+<div class="data-header">
+  <div class="data-count"> 
+    <span style="color:#102D4F;font-size:12px;font-family:Arial, Helvetica, sans-serif">
+      Showing <span id="search_count"></span> results in total <span id="total_count"></span> 
+    </span>
+  </div>
+  <div class="table-header-search-and-reset"> 
+    <div class="data-header-search field ">
+      <p class="control has-icons-left">
+        <input class="input" type="text" placeholder="Search in table" id="data-header-search-area" onkeyup="tablesearch(this.value)">
+        <span class="icon is-small is-left">
+            <i class="fas fa-search" style="color: darkgrey;"></i>
+        </span>
+      </p>
+    </div>
+    
+    <button class="table-header-filter-reset" onclick="resetTabulatorFilter()">
+      <span>Reset all Filters</span>
+      <span class="icon ">
+        <i class="fas fa-times"></i>
+      </span>
+    </button>
+  </div>
+    
+  <div class="table-header-filter">
+
+    <div class="table-header-filter-dropdown" onclick="handleFilterDropdown(this)">
+      
+      <span class="table-header-filter-title">
+        <i class="fas fa-filter"></i>
+        Filters
+      </span>
+      
+      <span class="table-header-filter-arrow icon is-large is-white">
+        <i class="fas fa-plus"></i>
+        <i class="fas fa-minus"></i>
+      </span>
+
+    </div>
+
+
+
+    
+    <fieldset class="table-header-versions">
+    
+        <div class="table-header-api"> 
+          <div class="table-header-api-title">
+            <span class="tag">
+              <span class="icon">
+                <i class="fas fa-car-side"></i>
+              </span>
+              <span>
+                &nbsp; SDPR Compliance
+              </span>
+            </span>
+          </div>
+          <div class="table-header-api-available"> 
+
+
+            <div class="table-header-version">
+              <input type="checkbox" class="api-version-checkbox" checked="true" id="CONVERGENCE" name="api" value="CONVERGENCE">
+              <label>CONVERGENCE</label>
+            </div>
+            <div class="table-header-version">
+              <input type="checkbox" class="api-version-checkbox" checked="true" id="IGNITE" name="api" value="IGNITE">
+              <label>IGNITE</label>
+            </div>
+            <div class="table-header-version">
+              <input type="checkbox" class="api-version-checkbox" checked="true" id="SPRINT" name="api" value="SPRINT">
+              <label>SPRINT</label>
+            </div>
+          </div> 
+          <div class="table-header-api-available"> 
+            <div class="table-header-version">
+              <input type="checkbox" class="api-version-checkbox" checked="true" id="SXM" name="api" value="SXM">
+              <label>SXM</label>
+            </div>
+            <div class="table-header-version">
+              <input type="checkbox" class="api-version-checkbox" checked="true" id="HUAWEI" name="api" value="HUAWEI">
+              <label>HUAWEI</label>
+            </div>
+            <div class="table-header-version">
+              <input type="checkbox" class="api-version-checkbox" checked="true" id="VDP" name="api" value="VDP">
+              <label>xP VDP+RCZ</label>
+            </div>
+            <div class="table-header-version">
+              <input type="checkbox" class="api-version-checkbox" checked="true" id="SERVICE" name="api" value="SERVICE">
+              <label>SERVICE DATA</label>
+            </div>
+            <div class="table-header-version">
+              <input type="checkbox" class="api-version-checkbox" checked="true" id="STLA ADA" name="api" value="STLA ADA">
+              <label>STLA ADA</label>
+            </div>
+          </div>           
+        </div>
+
+      
+
+    </fieldset>
+
+  </div>
+
+
+</div>
+
+
+
+
+<div id="data-catalog">
+</div>
+
+<script>
+var currentSearchTerm;
+function tablesearch(searchInput) {
+
+  table.removeFilter([
+      {field:"name",type:"!=",value:""},
+      [
+        {field:"name", type:"like", value:currentSearchTerm},
+        {field:"description", type:"like", value:currentSearchTerm},  
+        {field:"unit_or_value", type:"like", value:currentSearchTerm},
+      ]
+  ]);
+
+  currentSearchTerm = searchInput;
+
+  table.addFilter([
+    {field:"name",type:"!=",value:""},
+    [
+      {field:"name", type:"like", value:searchInput},
+      {field:"description", type:"like", value:searchInput}, 
+      {field:"unit_or_value", type:"like", value:searchInput}, 
+      {field:"step", type:"like", value:searchInput}, 
+      {field:"update", type:"like", value:searchInput},
+      {field:"CONVERGENCE", type:"like", value:searchInput},
+      {field:"IGNITE", type:"like", value:searchInput},
+      {field:"SPRINT", type:"like", value:searchInput},
+      {field:"SXM", type:"like", value:searchInput},
+      {field:"HUAWEI", type:"like", value:searchInput},
+      {field:"xP VDP+RCZ", type:"like", value:searchInput},
+      {field:"SERVICE DATA", type:"like", value:searchInput},
+      {field:"STLA ADA", type:"like", value:searchInput}
+    ]
+]);
+}
+
+
+
+const specification_page = {
+  webportal: {
+    v1: "/webportal/v1/api-reference/list/",
+    v2: "/webportal/v2/api-reference/list/",
+  },
+  webapi: {
+    v2: "/webapi/b2b/api-reference-v2/specification/",
+    v3: "/webapi/b2b/api-reference-v3/specification/",
+    v4: "/webapi/b2c/api-reference/specification/",
+  }
+}
+
+
+function taggify (api, link, tagShortText) {
+  if (link) {
+    var tagLink = 
+      "<a href='{{site.baseurl}}"  + specification_page[api][tagShortText] + link + "' target='_blank' class='tag data-item-available is-link'>"+
+        "<span> " + tagShortText +  "&nbsp; </span>"+
+      "</a>";
+    return tagLink;
+  }
+  else {
+    var tagNotLink = 
+    "<span class='tag'>"+
+        "<span>"+ 
+          tagShortText+
+        "</span>"+
+     "</span>";
+    return tagNotLink;
+  }
+}
+
+function taggifyWebportal(v1, v2,v3,v4,v5,v6,v7,v8){ 
+  if(!v1 && !v2 && !v3 && !v4 && !v5 && !v6 && !v7 && !v7 && !v8){
+    return (
+      "<div class='control'>"+
+          "<div class='tags has-addons n-a'>"+
+            "<span class='tag is-info'>" +
+              "<span class='icon'>"+ 
+                "<i class='fas fa-car-side'></i>"+
+              "</span>"
+              +"<span class='availability-name'>Webportal</span>"+
+            "</span>"+
+            "<span class='tag data-item-available is-danger'><span>n/a</span></span>"+
+          "</div>"+
+      "</div>"
+    )}
+  else{
+    var tagAddonV1 = "";
+    var tagAddonV2 = "";
+    var tagAddonV3 = "";
+    var tagAddonV4 = "";
+    var tagAddonV5 = "";
+    var tagAddonV6 = "";
+    var tagAddonV7 = "";
+    var tagAddonV8 = "";
+
+
+    if (v1) {
+      tagAddonV1 = taggify("webportal", v1, "v1");
+    }
+    if (v2) {
+      tagAddonV2 = taggify("webportal", v2, "v2");
+    }
+    var tagAddon = 
+      "<div class='control'>"+
+          "<div class='tags has-addons available'>"+
+            "<span class='tag is-info'>" +
+              "<span class='icon'>"+ 
+                "<i class='fas fa-car-side'></i>"+
+              "</span>"
+              +"<span class='availability-name'>Webportal</span>"+
+            "</span>"+
+            tagAddonV1+ 
+            tagAddonV2+ 
+          "</div>"+
+      "</div>";
+    return tagAddon;
+  }
+};
+
+
+
+function codify (text) {
+  if (text.includes("`")) {
+    var textEnum = text.replace(/(`\w+`)/g, function(match) {
+      return "<code class='highlighter-rouge'> '" + match.slice(1, -1) + "'</code>"
+    })
+    return "<code class='highlighter-rouge'><span style='font-weight:500'>Unit/Value:</span> [</code>"+ textEnum + "<code class='highlighter-rouge'>]</code>";
+  }
+  else {
+    return "<code class='highlighter-rouge'><span style='font-weight:500'>Unit/Value:</span> "+ text +"</code>"
+  }  
+}
+
+
+
+var currentRow;
+var highlightRow = function(e, row){
+  var rowElement = row.getElement();
+  if (rowElement == currentRow) {
+    currentRow.classList.remove("data-item-highlighted");
+    currentRow = null;
+  }
+  else {
+    if (currentRow) {
+      currentRow.classList.remove("data-item-highlighted");
+    }
+    console.log(row.getData().ID)
+    currentRow = rowElement;
+    currentRow.classList.add("data-item-highlighted");
+  }
+}
+
+var table = new Tabulator("#data-catalog", {
+	ajaxURL:"{{site.url}}{{site.baseurl}}/assets/data-catalog-table.json",
+  ajaxLoaderLoading:"<progress class='progress is-medium is-dark' max='100'>45%</progress>",
+	movableColumns:false,
+	resizableRows:false, 
+  resizableColumns:false, 
+  selectable:false,
+  layout:"fitColumns",
+  headerSort: false,
+  rowClick: highlightRow,
+  dataFiltered: function(filters, rows) {
+    var el = document.getElementById("search_count");
+    el.innerHTML = rows.length;
+  },
+  dataLoaded: function(data) {
+    var el = document.getElementById("total_count");
+    el.innerHTML = data.length;
+  },
+
+    rowFormatter:function(row){
+        var element = row.getElement(),
+        data = row.getData(),
+        cellContents,
+        itemCategorieLogo = domain_categories[data.domain],
+        elementWebportal = taggifyWebportal(data.webportal_v1, data.webportal_v2),
+        elementWebapi = taggifyWebapi(data.webapi_b2b_v2, data.webapi_b2b_v3, data.webapi_b2c_v4),
+        elementType = taggify(false, false, data.type),
+        elementUnitValue = codify(data.unit_or_value),
+        elementWebapi_v2,
+        elementWebapi_v3,
+        elementWebapi_v4,
+        elementWeportal_v1,
+        elementWeportal_v2;
+
+        //clear current row data
+        while(element.firstChild) element.removeChild(element.firstChild);
+
+        // create new row data
+        cellContents = 
+          
+          "<div class='data-item-category'>"+
+            "<span title='API Domain: "+ data.domain.replace("_", " ") +"' class='icon is-large'>"+
+              "<i class='fa "+ itemCategorieLogo +"'></i>"+
+            "</span>"+
+            "<span class='data-item-domain-name'>" + data.domain.replace("vehicle_info", "Vechicle<br>Info") + "</span>"+
+          "</div>"+
+
+          "<div class='data-item-content'>"+
+
+            "<div class='data-item-info'>"+
+              "<div class='data-item-title'>" + data.name + "</div>"+
+              "<div class='data-item-description'>"+ data.description +"</div>"+
+            "</div>"+
+            "<div  class='data-item-technical'>"+
+              "<div class='data-item-type'>"+
+                "<span>" + elementType + "</span>"+
+              "</div>"+
+              "<div class='data-item-unit_value'>"+
+                "<span>" + elementUnitValue + "</span>"+
+              "</div>"+
+            "</div>"+
+            "<nav class='data-item-availability'>"+
+              "<div class='data-item-links'>"+
+                "<div class='field is-grouped is-grouped-multiline'>" +
+                  elementWebportal+
+                  elementWebapi +
+                "</div>"+
+              "</div>"+
+            "</nav>"+
+            "</div>"+
+            "<div class='data-item-expand-arrow'>"+
+              "<span class='icon is-medium'>"+
+                "<i class='fa fa-2x fa-angle-right'></i>"+
+              "</span>"+
+            "</div>";
+
+        var dataItemElement = document.createElement("div");
+        dataItemElement.classList.add("data-item");
+        dataItemElement.innerHTML = cellContents ;
+
+        element.append(dataItemElement);
+    },
+});
+
+
+
+const searchField = document.getElementById("data-header-search-area");
+
+// ------- CHECKBOXES FILTER ---------
+var checkboxesState = {
+  "CONVERGENCE": "#",
+  "IGNITE": "#",
+  "SPRINT": "#",
+  "SXM": "#",
+  "HUAWEI": "#",
+  "xP VDP+RCZ": "#",
+  "SERVICE DATA": "#",
+  "STLA ADA": "#",
+},
+currentFilter = false;
+
+document.addEventListener("DOMContentLoaded",  function() {
+  checkboxesElements = document.querySelectorAll(".api-version-checkbox");
+  checkboxesElements.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      if (currentFilter) { table.removeFilter(currentFilter) }
+      if (this.checked) {
+        checkboxesState[this.value] = "#";
+      } else {
+        checkboxesState[this.value] = "@@@@@@";
+      }
+      currentFilter = 
+        [{field:"name",type:"!=",value:""},
+          [
+            {field:"CONVERGENCE", type:"like", value:checkboxesState["CONVERGENCE"]},
+            {field:"IGNITE", type:"like", value:checkboxesState["IGNITE"]},
+            {field:"SPRINT", type:"like", value:checkboxesState["SPRINT"]},
+            {field:"SXM", type:"like", value:checkboxesState["SXM"]},
+            {field:"HUAWEI", type:"like", value:checkboxesState["HUAWEI"]},
+            {field:"xP VDP+RCZ", type:"like", value:checkboxesState["xP VDP+RCZ"]},
+            {field:"SERVICE DATA", type:"like", value:checkboxesState["SERVICE DATA"]},
+            {field:"STLA ADA", type:"like", value:checkboxesState["STLA ADA"]}
+          ]
+        ]
+      table.addFilter(currentFilter)
+    });
+  });
+})
+
+// ------- end CHECKBOXES FILTER ---------
+
+function handleFilterDropdown(dropdown) {
+  if (dropdown.classList.contains("table-header-filter-displayed")) {
+    document.querySelector("#data-catalog.tabulator .tabulator-header").style.height = "0";
+    dropdown.classList.remove("table-header-filter-displayed");
+    
+  }
+  else  {
+    document.querySelector("#data-catalog.tabulator .tabulator-header").style.height = "auto";
+    dropdown.classList.add("table-header-filter-displayed");
+  }
+}
+
+function resetTabulatorFilter() {
+  document.querySelectorAll(".table-header-version input").forEach(e => {
+    e.checked = true;
+  });
+  searchField.placeholder = "Search in table";
+  searchField.value = null;
+  table.clearFilter(true);
+}
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+var search = urlParams.get('search')
+var categories = urlParams.get('removed_categories');
+
+
+
+if (search) {
+  searchField.placeholder = search;
+  search = search.split(",").map(function(item) {return parseInt(item, 10);});;
+  table.addFilter("ID", "in", search);
+}
+if (categories) {
+  window.addEventListener("DOMContentLoaded", function () {
+      categories = categories.split(",");
+      const dropdownElement = document.querySelector(".table-header-filter-dropdown");
+      categories.forEach(category => {
+        if (categoryElement = document.querySelector("#"+category)) {
+          categoryElement.click();
+        }
+      });
+      if (categories != false) {
+        handleFilterDropdown(dropdownElement);
+      }
+  });
+}
+
+</script>
+

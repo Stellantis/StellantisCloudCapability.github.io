@@ -2,7 +2,7 @@ openapi: 3.0.0
 servers:
   - url: https://server/api/connectedcar/v1
 info:
-  version: '1.0.27'
+  version: '1.0.28'
   title: Stellantis Connected Car API
   description: |
     *Connected Car API*
@@ -29,9 +29,9 @@ info:
       <i>Send the remote command to the vehicle. It is also possible to define the actions (remote action or monitor changes) to invoke when receiving a particular remote event channel status. Thus, it can be possible to automate scenarios.</i>
     ##  Datastream:
       <i>Create output data streams on a defined channel. Data sent on this stream are the same as that exposed by the APIs.</i>
-
+      
       ---
-
+      
 
     # API Authentication
 
@@ -41,27 +41,27 @@ info:
       ## Filtering Scopes
 
       - When  API caller requests a set of scopes. The owner may not grant access to all of the requested scopes, so the application will have to adapt to the restricted access or request for a larger set of scopes again.
-      - API backend will deliver the data related to the granted scopes only.
+      - API backend will deliver the data related to the granted scopes only. 
       - If no scope has been granted with the caller token then an unauthorized error will be returned.
-
+          
         _If for example the API caller requests for "telemetry" or "trip" endpoint without having the "location" scope, then the resource data returned will not have the vehicle's position but only other data that will satisfy the scopes present in the token._
-
+      
        ##  Use of Scopes
       - Scopes are specified  in each individual API.
       - Depending on the API, scope can be :
         - Mandatory (designed with comment "#Required"): if this scope is not used during the request an error will be returned. An API can have multiple mandatory scopes.
         - Optional scopes will return an optional part of the API.
-
-
+        
+      
       ## Hierarchical Scopes
-
-      Since API resources are hierarchical, API uses also hierarchical scopes.
+      
+      Since API resources are hierarchical, API uses also hierarchical scopes. 
         _Colon characters_ are used to navigate to subresource scopes.
-
+          
       **The scopes used to request access to resources for the OAuth2 security scheme fall into four categories:**
 
       #### _1. <u>IoT data scopes:</u>_
-      |<b>Scope</b>  |<b>Description</b>  |
+      |<b>Scope</b>  |<b>Description</b>  | 
       |---|---|
       |data:vehicle| read Vehicle attributes data|
       |data:telemetry| read full telemetry data|
@@ -92,42 +92,42 @@ info:
       |data:trip| read trip related data|
       |data:collision| read collision related data|
       #### _2. <u>Notification channel scopes:</u>_
-      |<b>Scope</b>  |<b>Description</b>  |
-      |---|---|
+      |<b>Scope</b>  |<b>Description</b>  | 
+      |---|---|       
       |channel| read calback related data|
       |channel:<b>write</b>| create, modify or delete channels|
        #### _3. <u>Vehicle grouping scopes:</u>_
-      |<b>Scope</b>  |<b>Description</b>  |
-      |---|---|
+      |<b>Scope</b>  |<b>Description</b>  | 
+      |---|---|       
       |grouping| read groups related data|
       |grouping:<b>write</b>| create, modify or delete groups|
       #### _4. <u>Vehicle monitor scopes:</u>_
-      |<b>Scope</b>  |<b>Description</b>  |
-      |---|---|
+      |<b>Scope</b>  |<b>Description</b>  | 
+      |---|---|       
       |monitor| read monitors|
       |monitor:<b>write</b>| create, modify or delete Monitors|
       #### _5. <u>Datastream scopes:</u>_
-      |<b>Scope</b>  |<b>Description</b>  |
-      |---|---|
+      |<b>Scope</b>  |<b>Description</b>  | 
+      |---|---|       
       |datastream| read exisiting datastream (subscribed, status...) setting|
       |datastream:<b>write</b>| create, modify or delete datastreams|
       #### _6. <u>Vehicle remotes scopes:</u>_
-      |<b>Scope</b>  |<b>Description</b>  |
-      |---|---|
+      |<b>Scope</b>  |<b>Description</b>  | 
+      |---|---|            
       |remote| read full remote state(pending & history)|
-      |remote:locking| read door remote (pending & history)|
+      |remote:locking| read door remote (pending & history)|      
       |remote:locking:<b>write</b>| send a door remote to vehicle|
-      |remote:horn| read horn remote  (pending & history)|
+      |remote:horn| read horn remote  (pending & history)| 
       |remote:horn:<b>write</b>| send a horn remote to vehicle|
-      |remote:lights| read lights remote (pending & history)|
+      |remote:lights| read lights remote (pending & history)| 
       |remote:lights:<b>write</b>| send remote to switch on/off vehicle lights|
-      |remote:preconditioning| read preconditioning remote (pending & history)|
+      |remote:preconditioning| read preconditioning remote (pending & history)| 
       |remote:preconditioning:<b>write</b>| send a preconditioning remote to vehicle|
-      |remote:onboardPersonalData| read onboardPersonalData remote (pending & history)|
+      |remote:onboardPersonalData| read onboardPersonalData remote (pending & history)| 
       |remote:onboardPersonalData:<b>write</b>| send an onboardPersonalData remote to vehicle|
-      |remote:charging| read charging remote (pending & history)|
+      |remote:charging| read charging remote (pending & history)| 
       |remote:charging:<b>write</b>| send charging remote to vehicle|
-      |remote:wakeUp| read wakeUp remote (pending & history)|
+      |remote:wakeUp| read wakeUp remote (pending & history)| 
       |remote:wakeUp:<b>write</b>| send wakeUp remote to vehicle|
        |remote:navigation:write|send desitnation to vehicle|
       |remote:vehicleFinder:write|Send find vehicle command |
@@ -138,49 +138,49 @@ info:
     # API Navigability:
       These APIs use [HATEOAS]([https://en.wikipedia.org/wiki/HATEOAS#Implementations) as standard convention for defining resources discovery and navifability (thanks to related hyperlinks).
       Adopting HAL simplifies the use of open source libraries and make it possible to interact with the API using JSON.
-    ---
+    ---          
     # API Paging:
-    To make this necessary feature easy to use when retrieving a collection of results, this API uses a token (computed and interpreted by the backend only) as a context that contains all necessary information allowing the navigation through pages.
+    To make this necessary feature easy to use when retrieving a collection of results, this API uses a token (computed and interpreted by the backend only) as a context that contains all necessary information allowing the navigation through pages. 
       Token acts as an ```HTTP COOKIE``` on the client-side, so the server does not keep any cache or session settings to continue paging and keep all request stateless. These tokens are used to build HAL (Hypertext Application Language) hyperlinks also.
-
+          
     ---
     # API Errors:
       Error codes returned by all APIs comply with the standard. Nevertheless, PSA Services (callers) need to have more detailed data structures (even when the answer is not Http-OK) to better categorize the type of error by providing application code, message and debugging code(for investigation purposes). The HTTP code of the response is managed by the protocol itself (in the header).
-
+        
       ### These APIS are likely to report the following HTTP code:
-
-      |<b>Code</b>  |<b>Description</b>  | <b>Case</b> |
+      
+      |<b>Code</b>  |<b>Description</b>  | <b>Case</b> | 
       |---|---|---|
       |200  |<i>The request has succeeded and the resource data has been sent.</i>|GET APIs.  |
-      |202  |<i>The request has been accepted for processing, but not yet acted upon. An id of processing is returned.</i>|POST/PUT requests:<br>-Create monitor<br>-Create a callbak.|
+      |202  |<i>The request has been accepted for processing, but not yet acted upon. An id of processing is returned.</i>|POST/PUT requests:<br>-Create monitor<br>-Create a callbak.| 
       |204  |<i>The request has been accepted and there is no additional content</i>|DELTE APIs:<br>-Delete monitor.<br>-Delete a channel.|
       |400|<i>Request cannot be processed due to invalid query parameter value of body content (for POST/PUT verbs)</i>|ALL APIs.|
       |401|<i>Unauthorized request due to lack of valid authentication credentials.</i>|All APIs.|
       |403|<i>Unauthorized request due to insufficient credentials to grant access.</i>|All APIs.|
       |404|<i>Target resource not found.|All APIs. Even POST, PUT or DELETE if the resource id is uncknown.</i>|
       |500|<i>Unexpected condition that prevented from fulfilling the reques.</i>|All APIs.|
-      |501|<i>Feature not supported</i>|All APIs.|
+      |501|<i>Feature not supported</i>|All APIs.| 
 
-
+      
       **Errors are  returned as a generic error response:**
        * See ```ErrorCodeDefaultResponse``` model.
-
+       
     ---
     # API output:
-
+     
       ## Data format
-
+      
       **All APIs return data in JSON format. The application who uses them must take into account the evolving character of them and more precisely regarding the schemas of the exposed data. Indeed:**
-
-      *  The missing of known data fields should not cause an error.
-      *  It should (correctly)  deal with JSON content with unknown properties also. Indeed, data schema extensions should be supported without errors even if they are not used.
-
-
+      
+      *  The missing of known data fields should not cause an error. 
+      *  It should (correctly)  deal with JSON content with unknown properties also. Indeed, data schema extensions should be supported without errors even if they are not used. 
+        
+      
       **for example:**
-
+      
       Assuming a given exposed resource with this data schema:
-
-
+        
+          
            data:
             type: object
             description: Data model
@@ -189,27 +189,27 @@ info:
                 type: string
               field2:
                 type: number
-
+             
       The application should be able to deal with those possible valid JSON contents:
-
+        
       > All fields:
         ```{
           "field1":"value1",
           "field2": 1
         }```
-
+        
       > Missing field2:
         ```{
           "field1":"value1"
-        }```
+        }```        
 
       > Unknow  field3:
         ```{
           "field1":"value1",
           "field3": 2.5
         }```
-
-
+      
+     
     ---
   license:
     name: Stellantis Licence
@@ -251,7 +251,7 @@ paths:
   /accounts/vehicles/{id}/charging/sessions:
     $ref: '#/x-fragment/Vehicle_id_chargeSessions'
   /accounts/vehicles/{id}/charging/sessions/{sid}:
-    $ref: '#/x-fragment/Vehicle_id_ChargeSession_id'
+    $ref: '#/x-fragment/Vehicle_id_ChargeSession_id'    
   /accounts/vehicles/{id}/trips:
     $ref: '#/x-fragment/Vehicle_id_Trips'
   /accounts/vehicles/{id}/trips/{tid}:
@@ -276,7 +276,7 @@ paths:
     $ref: '#/x-fragment/ch_id_monitor_id_setter_put'
   /accounts/channels/{chId}/monitors/{mid}/handles:
     $ref: '#/x-fragment/ch_id_monitor_id_handles'
-
+      
   /accounts/channels:
     $ref: '#/x-fragment/channels_crud'
   /accounts/channels/{chId}:
@@ -292,7 +292,7 @@ paths:
   /accounts/vehicles/{id}/stolen/{sid}:
     $ref: '#/x-fragment/Vehicle_id_stolen_id_report_getter'
   /accounts/vehicles/{id}/stolen/{sid}/waypoints:
-    $ref: '#/x-fragment/Vehicle_id_stolen_id_report_waypoints_getter'
+    $ref: '#/x-fragment/Vehicle_id_stolen_id_report_waypoints_getter'   
 
 components:
   securitySchemes:
@@ -382,10 +382,10 @@ components:
           enum: [Fuel, Electric]
     EnergySubType:
           type: string
-          description: |
+          description: | 
             Energy subtype. This field is not mandatory and therefore if it is not present, it means that the resource consumer should only process the primary energy type. The enumeration of the subtypes is not exhaustive and may contain more elements depending on the evolution of the vehicles. The consumer of the data must take this constraint into account. The Fossil and Electric energy subtypes are only used to populate this subtype for the default Fuel and Electric types.
               * Electric and hydrogen type are considered as low emission vehicle whereas fuel(fossil) is associated to thermic energy
-          enum: [FossilEnergy, ElectricEnergy, Hydrogen]
+          enum: [FossilEnergy, ElectricEnergy, Hydrogen] 
     VehicleCapability:
       type: object
       properties:
@@ -459,7 +459,7 @@ components:
                   description: true means remote preconditioning is supported.
                 scopeName:
                   type: string
-                  enum:
+                  enum: 
                     - remote:preconditioning:write
                   default : remote:preconditioning:write
                 parameters:
@@ -468,14 +468,14 @@ components:
                     programs:
                       type : object
                       properties:
-                        size:
+                        size: 
                           type: integer
                           description : Max number of program accepted by the vehicle.
                           default: 4
                         temperature:
                           type: boolean
                           description: true means programs supports temperature setting
-                      required : [size]
+                      required : [size] 
                     immediate:
                       type: boolean
                       description: true means remote preconditioning immediate action is supported.
@@ -488,7 +488,7 @@ components:
                   description: true means remote charging is supported.
                 scopeName:
                   type: string
-                  enum:
+                  enum: 
                    - remote:charging:write
                 parameters:
                   type: object
@@ -496,8 +496,8 @@ components:
                   required: [immediate,programs,settings]
 
                   properties:
-                    immediate:
-                        description: start and stop will be by default true for SSDP vehicles.
+                    immediate: 
+                        description: start and stop will be by default true for SSDP vehicles. 
                         properties:
                           start:
                             type: boolean
@@ -513,8 +513,8 @@ components:
                           properties:
                             supported :
                               type : boolean
-                              description: true means remote charging schedule[programs] is supported.
-                            size:
+                              description: true means remote charging schedule[programs] is supported. 
+                            size: 
                               type: integer
                               description : Max number of program accepted by the vehicle. This value is set based on vehicle model.
 
@@ -528,7 +528,7 @@ components:
                             maxChargingLevel:
                               type: boolean
                               description: true means Maximum ChargingLevle is supported/required
-
+                              
                           required : [supported,size,occurrence,minChargingLevel,maxChargingLevel]
 
                     settings:
@@ -541,8 +541,8 @@ components:
                           type: boolean
                           description: true means remote charging preferences[type] is supported.
                           example : false
-
-
+                
+                    
             door:
               type: object
               required: [supported, scopeName]
@@ -552,7 +552,7 @@ components:
                   description: true means remote door is supported.
                 scopeName:
                   type: string
-                  enum:
+                  enum:  
                    - remote:door:write
                   default : remote:door:write
             horn:
@@ -564,7 +564,7 @@ components:
                   description: true means remote horn is supported.
                 scopeName:
                   type: string
-                  enum:
+                  enum:  
                    - remote:horn:write
                   default : remote:horn:write
             lights:
@@ -577,7 +577,7 @@ components:
                   example : false
                 scopeName:
                   type: string
-                  enum:
+                  enum:  
                    - remote:lights:write
                   default : remote:lights:write
             wakeup:
@@ -590,7 +590,7 @@ components:
                   example : true
                 scopeName:
                   type: string
-                  enum:
+                  enum:  
                    - remote:wakeup:write
                   default : remote:wakeup:write
             navigation:
@@ -602,13 +602,13 @@ components:
                   description: true means remote navigation is supported.
                 scopeName:
                   type: string
-                  enum:
+                  enum:  
                    - remote:navigation:write
                   default : remote:navigation:write
             stolen:
               type: object
               required: [supported]
-
+              
               properties:
                 supported :
                   type: boolean
@@ -616,7 +616,7 @@ components:
             tanSuppress:
               type: object
               required: [supported]
-
+              
               properties:
                 supported :
                   type: boolean
@@ -661,7 +661,7 @@ components:
       type: number
       format: int
       minimum: 0
-
+      
     AlertReport:
       title: Report
       type: object
@@ -689,7 +689,7 @@ components:
         - active
         - severity
     VehicleExtension:
-      description: Additional vehicle  information.
+      description: Additional vehicle  information.  
       properties:
         devices:
           $ref: '#/components/schemas/Devices'
@@ -704,14 +704,14 @@ components:
         enum:
           - devices
           - callCenterNumbers
-
+    
     CallCenterNumbers:
       type: array
       description: Call Center telephone numbers to be called in case of emergency situation/crash (ecall), vehicle breakdown (acall), stolen vehicle (svl)
       items:
         $ref: '#/components/schemas/TelephoneNumberDetails'
-
-
+        
+    
     TelephoneNumberDetails:
       type: object
       description: List of call Types and associated call center numbers based on brand and country of vehicle
@@ -730,19 +730,19 @@ components:
       type : object
       description: |
         All device items in this list will share the same data model, "Device", which will express its type and expose a details map containing specificities as key/value pairs. The supported device details with their key/values pairs are:
-
+        
         |Type|Key|Value|
-
+        
         |----|----|-------------|
-
+        
         |pnc|pcid|Value of vehicle provisioning certificate|
-
+        
         |pnc|macAddress|Vehicle mac address for charging|
-
+        
       properties:
         Device:
           type: array
-          items:
+          items: 
             $ref: '#/components/schemas/Device'
     Device:
       type: object
@@ -799,7 +799,7 @@ components:
               - startedAt
               - _links
               - active
-
+              
     Alert:
       allOf:
         - $ref: '#/components/schemas/CreatedAtField'
@@ -840,7 +840,7 @@ components:
             - Acquire
         fixStatus:
           type: string
-          description : Fix status information is only returned when position type is set to Acquire. Horizontal & altitude position can be determined in 3D fix status mode where it is only horizontal position in 2D mode.
+          description : Fix status information is only returned when position type is set to Acquire. Horizontal & altitude position can be determined in 3D fix status mode where it is only horizontal position in 2D mode. 
           enum:
             - 2D
             - 3D
@@ -859,7 +859,7 @@ components:
             properties:
               $ref: '#/components/schemas/CreatedAtField'
       required:
-        - createdAt
+        - createdAt   
     NavPositionBase:
      allOf:
         - $ref: '#/components/schemas/GeoPosition'
@@ -880,7 +880,7 @@ components:
               type: number
               #minimum: -90
               #maximum: 90
-            longitude:
+            longitude: 
               type: number
               #minimum: -180
               #maximum: 180
@@ -921,42 +921,42 @@ components:
               code:
                 type: string
               names:
-                type: array
+                type: array   
                 items:
                   properties:
                     nameLocale:
                      type: string
-                    name:
+                    name: 
                       type: string
     TipsContainer:
       type: object
-      properties:
-        acceleration:
+      properties: 
+        acceleration: 
           allOf:
           $ref: '#/components/schemas/TipContainer'
-        deceleration:
+        deceleration: 
           allOf:
           $ref: '#/components/schemas/TipContainer'
         speed:
-          allOf:
+          allOf: 
           $ref: '#/components/schemas/TipContainer'
-        gear:
+        gear: 
           allOf:
           $ref: '#/components/schemas/TipContainer'
         regeneration:
-          allOf:
+          allOf: 
           $ref: '#/components/schemas/TipContainer'
-    TipContainer:
+    TipContainer:  
       type: object
-      properties:
+      properties: 
         definition:
           type: string
         assessment:
           type: string
-        tips:
+        tips: 
           type: array
           items:
-            type: string
+            type: string        
     orpEditRequest:
       allOf:
         - $ref: '#/components/schemas/EditWaypointBreadcrumb'
@@ -967,8 +967,8 @@ components:
                   difficulty:
                     description: trip difficulty level
                     type: number
-                  orpTripName:
-                    type: string
+                  orpTripName: 
+                    type: string 
     EditWaypointBreadcrumb:
       type: object
       properties:
@@ -982,7 +982,7 @@ components:
             - NONE
             - PLACES
             - OBSTACLE
-            - GUIDANCE
+            - GUIDANCE 
         wayPointType2:
           type: string
           enum:
@@ -1002,7 +1002,7 @@ components:
             - DEADEND
             - HARDLEFT
             - HARDRIGHT
-            - SLOW
+            - SLOW 
     ORPDeleteRequest:
       type: array
       items:
@@ -1010,13 +1010,13 @@ components:
         properties:
           tripsToDelete:
             type: string
-
-
-
+    
+   
+    
     TripPostionProperties:
       allOf:
         - $ref: '#/components/schemas/CreatedAtField'
-        - description: 'Trip Position properties used to express the extension of dat in trip events.'
+        - description: 'Trip Position properties used to express the extension of dat in trip events.' 
         - properties:
             tripContext:
               type: object
@@ -1044,10 +1044,10 @@ components:
                     hardCornering:
                       type: boolean
                       description: Hard cornering at this position during the trip
-
+                    
       required:
         - createdAt
-
+    
     AlertDetailsBase:
       type: object
       properties:
@@ -1055,7 +1055,7 @@ components:
            $ref: '#/components/schemas/AlertsReportBase'
         active:
            $ref: '#/components/schemas/BasicAlertBase'
-
+    
     AlertReportDetails:
       description: List of  active and inactive alerts included in the Vehicle Health Report. This report is generated by the vehicle, and the alerts included in the report are determined by the vehicle's configuration
       allOf:
@@ -1064,11 +1064,11 @@ components:
         reportDetails:
           type: array
           items:
-            $ref: '#/components/schemas/AlertReport'
+            $ref: '#/components/schemas/AlertReport' 
 
       required:
         - createdAt
-
+        
     ActiveAlertDetails:
       description: List of active alerts on vehicle
       allOf:
@@ -1080,7 +1080,7 @@ components:
             $ref: '#/components/schemas/BasicAlert'
       required:
         - createdAt
-
+        
     AggregatedAlertDetails:
       title: Alert Details
       type: object
@@ -1089,7 +1089,7 @@ components:
           $ref: '#/components/schemas/AlertReportDetails'
         active:
           $ref: '#/components/schemas/ActiveAlertDetails'
-
+          
     BasicAlertBase:
       properties:
         activeAlerts:
@@ -1100,11 +1100,11 @@ components:
       properties:
         reportDetails:
           description:  List of specific active or inactive alerts on vehicles, providing a report of selected alerts along with their severities.
-
+          
           type: array
           items:
             $ref: '#/components/schemas/AlertReport'
-
+           
     Url:
       type: string
       description: URL format follows [RFC 3986](https://tools.ietf.org/html/rfc3986) and usually looks like this ` scheme://host[:port][/Path] `
@@ -1161,7 +1161,7 @@ components:
             * Major for airbag and prentensioner activation.
       required:
         - side
-
+    
     Collision:
       allOf:
         - $ref: '#/components/schemas/CreatedAtField'
@@ -1197,8 +1197,8 @@ components:
           required:
             - id
             - createdAt
-
-
+  
+    
     EngineLiquid:
       type: object
       properties:
@@ -1230,7 +1230,7 @@ components:
     PowerTrainBase:
       type: object
       properties:
-
+        
         gmpStatus:
           type: string
           description: Engine GMP status
@@ -1294,19 +1294,19 @@ components:
         - createdAt
     TripsSummary:
       type: array
-      items:
-       type: object
+      items: 
+       type: object 
        properties:
           startTime:
-            description: day/weeks/months startTime
+            description: day/weeks/months startTime 
             type: number
           endTime:
-            description: day/weeks/months end Time
+            description: day/weeks/months end Time 
             type: number
           currency:
             type: string
           distance:
-            description:  distance traveled in km
+            description:  distance traveled in km 
             type: number
           duration:
             description:  total trips duration in day/week/month
@@ -1320,8 +1320,8 @@ components:
           numTriggers:
             description: total number of triggering events
             type: integer
-          numTrips:
-            description: Total number of trips in day/week/month
+          numTrips: 
+            description: Total number of trips in day/week/month 
             type: integer
           totalFuelConsumption:
             description: number of total fuel consumption.
@@ -1330,29 +1330,29 @@ components:
             description: number of total energy consumption
             type: integer
           accelerationScore:
-            description: Average acceleration score
+            description: Average acceleration score 
             type: number
           decelerationScore:
-           description: Average deceleration score
+           description: Average deceleration score 
            type: number
-          speedScore:
-            description: Average speed score
+          speedScore: 
+            description: Average speed score 
             type: number
           shiftingScore:
             description: Average shifting score
-            type: number
+            type: number 
           isBusinessTrip:
             type: boolean
           isFavouriteTrip:
             type: boolean
-          averageEcoScore:
+          averageEcoScore: 
             type: integer
           profileName:
             type: string
     TripSummary:
       type: object
       properties:
-        tripSummaryType:
+        tripSummaryType: 
           type: string
           enum:
             - Daily
@@ -1360,7 +1360,7 @@ components:
             - Monthly
             - Custom
         numRecords:
-          description: number of trip record
+          description: number of trip record 
           type: integer
         tripSummary:
           $ref: '#/components/schemas/TripsSummary'
@@ -1422,7 +1422,7 @@ components:
     PropulsionBase:
       description: |
         Vehicle propulsion system includes one or more sources of propulsion, which can be used together or alternately. During a driving session, a vehicle can switch from one propulsion mode to another. This structure therefore expresses the mode of propulsion at a given time stamp.
-
+          
           * _Note: For the electric vehicle, the propulsion type will always be electric. Similarly, for thermal vehicle, it will always be thermal._
       properties:
         type:
@@ -1475,21 +1475,21 @@ components:
         - createdAt
     TyreStateBase:
       type: object
-      description: Tire pressure for each tire.
+      description: Tire pressure for each tire. 
       required:
         - id
       properties:
         id:
           type: string
           description: |
-            Tire identifier - front right tire, rear left tire etc.
-            Mapping & description:
-            |  <b>Id </b>  |  <b>Description </b>  |
-            |---|---|
-            |FrontRight |Front right wheel tyre |
-            |FrontLeft | Front left wheel tyre  |
-            |RearRight|Rear right wheel tyre  |
-            |RearLeft|Rear left wheel tyre |
+            Tire identifier - front right tire, rear left tire etc. 
+            Mapping & description: 
+            |  <b>Id </b>  |  <b>Description </b>  |  
+            |---|---| 
+            |FrontRight |Front right wheel tyre |  
+            |FrontLeft | Front left wheel tyre  |  
+            |RearRight|Rear right wheel tyre  | 
+            |RearLeft|Rear left wheel tyre | 
             |SecondRearLeft| Second dual tyre on the rear left wheel |
           enum:
             - FrontRight
@@ -1504,19 +1504,19 @@ components:
           type: string
           description: |
             Status associated with the tire.
-                Mapping & description:
-                |<b>Status </b>| <b>Description </b> |
-                |---|---|
-                |High |Inflation High|
-                |Normal | Inflation Normal|
-                |Low|Inflation Low (Under Inflated)|
+                Mapping & description: 
+                |<b>Status </b>| <b>Description </b> |  
+                |---|---| 
+                |High |Inflation High|  
+                |Normal | Inflation Normal|  
+                |Low|Inflation Low (Under Inflated)| 
                 |SignificantlyLow| Significantly Under Inflated|
           enum:
             - High
             - Normal
             - Low
             - SignificantlyLow
-
+            
 
     FuelAmount:
       type: object
@@ -2101,7 +2101,7 @@ components:
         placeid:
           type: integer
           description: Placeid for the location
-
+          
         name:
           type: string
           description: Name of Place
@@ -2217,8 +2217,8 @@ components:
           type: number
         Profile:
           type: string
-
-
+    
+    
     BestPerformance:
       type: object
       description: << xf Only >>
@@ -2379,7 +2379,7 @@ components:
               type: number
               format: float
             type:
-              $ref: '#/components/schemas/EnergyType'
+              $ref: '#/components/schemas/EnergyType' 
             subType:
               $ref: '#/components/schemas/EnergySubType'
         - required:
@@ -2418,14 +2418,14 @@ components:
           description: Remaning time before the battery is fully charged. This duration is expressed using [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) format.
           type: string
         chargingSpeed:
-          description:  |
+          description:  | 
                           * deprecated; please use 'setting' for charging speed.
           type: integer
           deprecated: true
           minimum: 0
           maximum: 500
         chargingMode:
-          description: |
+          description: | 
                           * deprecated; please use 'setting' for charging mode.
           deprecated: true
           type: string
@@ -2457,7 +2457,7 @@ components:
         settings:
           allOf:
               - $ref: '#/components/schemas/ChargeSettings'
-              - properties:
+              - properties: 
                   chargingSpeed:
                     description: Charging speed (expressed in gained batteryLife per hour -> KM/H).
                     type: integer
@@ -2523,9 +2523,9 @@ components:
       properties:
         start:
           type: string
-          description: |
+          description: | 
                     The start time formatted using the duration format based on [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) with the schema: P[n]Y[n]M[n]DT[n]H[n]M[n]S and whose value is between 0H and 23h59
-
+      
                         _example_: PT14H30M : means 14H30min
         enabled:
           type: boolean
@@ -2539,9 +2539,9 @@ components:
       properties:
         start:
           type: string
-          description: |
+          description: | 
                     The start time formatted using the duration format based on [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) with the schema: P[n]Y[n]M[n]DT[n]H[n]M[n]S and whose value is between 0H and 23h59
-
+      
                         _example_: PT14H30M : means 14H30min
         occurrence:
           type: object
@@ -2564,16 +2564,12 @@ components:
         enabled:
           type: boolean
           description: Determines whether this program is enabled or not.
-
-      required:
-
-          - start
-    PrecondProgramTemp:
+    PrecondProgramTemp:    
       type: object
-      properties:
+      properties: 
         temp:
           description: Target temperature to be reached by HVAC in celsius for that specific schedule.
-          type: number
+          type: number       
     StatusExtensionType:
       type: array
       items:
@@ -2602,9 +2598,9 @@ components:
                   - PluggedAndOverlappingChargeSchedule
           - required:
               - start
-              - enabled
+              
               - slot
-              - occurrence
+             
     ChargeProgram:
       description: List of charging programs to schedule on vehicle.
       type: array
@@ -2619,24 +2615,24 @@ components:
           - $ref: '#/components/schemas/ChargingProgramSlot'
     TimeTriggerEntry:
           required: [start]
-          example:
+          example:  
                 recurrence: Daily
                 start: PT8H30M
                 duration: PT7H30M
                 occurrence: [Mon,Tue,Thu, Fri]
           description: |
                         The monitor Time Trigger Entry that specifies the start (relative or absolute) and duration of the time interval. The relative start time must be to midnight and the absolute must be expressed in UTC.
-
-                        <u><b>Note:</b></u>
+                        
+                        <u><b>Note:</b></u> 
                         * ```occurrence``` field <b><u>should</u></b> be provided only if the recurrence is set to ```Daily```. Otherwise an invalid parameter status is returned.
                         * The time entry with recurrence set to ```None``` means that this program will be enabled from the absolute start time with no recurrence. This kind of time entry can be used to for delayed monitor activation (from a start time) or a closed trigger time interval.
                         *  ```duration``` field <b><u>is mandatory</u></b> if the recurrence is set to ```Daily```. If it is set to ```None``` then it will define the absolute monitor activity period duration (starting from absolute time defined by ```start``` field), otherwise this trigger time interval is considered as unclosed.
           properties:
             recurrence:
-              description: |
-                          Determines the recurrence of the program.
-                          * None: means no recurrence.
-                          * Daily: repeated over the week.
+              description: | 
+                          Determines the recurrence of the program. 
+                          * None: means no recurrence. 
+                          * Daily: repeated over the week. 
               type: string
               enum: [None, Daily]
               default: Daily
@@ -2649,11 +2645,11 @@ components:
               description: |
                             The start time.
                             Its format depends on the recurrence value.
-                            * For ```None``` recurrence, the start time is considered as absolute time from when the monitor can trigger events. In this case the format should be compliante with [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
-
+                            * For ```None``` recurrence, the start time is considered as absolute time from when the monitor can trigger events. In this case the format should be compliante with [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)  
+                            
                               _example_: 2018-01-03T12:00:00+01:00
                             * For ```Daily``` recurrence, the start time formatted using the duration format based on [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) with the schema: P[n]Y[n]M[n]DT[n]H[n]M[n]S and whose value is between 0H and 23h59
-
+                        
                               _example_: PT14H30M : means 14H30min
             occurrence:
               type: object
@@ -2667,7 +2663,7 @@ components:
                           items:
                             type: string
                             enum: [Mon, Tue, Wed, Thu, Fri, Sat, Sun]
-                      week:
+                      week:  
                           description:  occurrences over the weeks of the year from w1 to w52 specified in an array unitary or grouped by ranges (w1, w2, w34-w46, w52)
                           type: array
                           minItems: 1
@@ -2677,7 +2673,7 @@ components:
                             type: string
                             format: '[wW][1-5][0-9]?(-[wW][1-5][0-9]?)?'
                           example: [w1-w25,w30,w36, w40-w50]
-
+              
     PreconditioningBase:
       type: object
       description: Preconditioning the vehicle for driver and passenger.
@@ -2712,16 +2708,16 @@ components:
               enum: [Immediate, Scheduled]
             programs:
               $ref: '#/components/schemas/PreconditioningProgram'
-
+    
     ChargingSessionEnergy:
       type: object
-      description: Charging session energy.
+      description: Charging session energy. 
       properties:
-        batteryPower:
+        batteryPower: 
           type: integer
           description: >
             Battery residual power. Unit is Wh
-          example: 12000
+          example: 12000  
         level:
           type: integer
           description: Energy level in percentage.
@@ -2745,7 +2741,7 @@ components:
         chargePreferenceRate:
           description: |
             Max amperage provided by the charge plug:
-
+              
             |<b>Charge Preference Rate</b>|<b>Description</b>|
             |---|---|
             |Low|20% of max amperage provided by the charge plug|
@@ -2768,23 +2764,23 @@ components:
           enum:
             - Full
             - Partial
-          example: 0
+          example: 0  
         powerType:
           type: string
           description: >
-            Charging power type:
-              * AC (Alternating Current)
+            Charging power type: 
+              * AC (Alternating Current) 
               * DC (Direct Current).
           enum:
             - AC
             - DC
-
+    
     TimestampedChargingSession:
       allOf:
         - $ref: '#/components/schemas/CreatedAtField'
         - $ref: '#/components/schemas/UpdatedAtField'
         - properties:
-            sid:
+            sid: 
               type: string
               description: Charging session unique ID.
         - $ref: '#/components/schemas/ChargingSession'
@@ -2805,7 +2801,7 @@ components:
                   $ref: '#/components/schemas/link'
               required:
                 - self
-            sid:
+            sid: 
               type: string
               description: Charging session unique ID.
         - $ref: '#/components/schemas/CreatedAtField'
@@ -2814,7 +2810,7 @@ components:
         - required:
             - createdAt
             - updatedAt
-            - sid
+            - sid            
 
     TimestampedChargingSessions:
       title: ChargingSessions
@@ -2837,7 +2833,7 @@ components:
                 sessions:
                   type: array
                   items:
-                    $ref: '#/components/schemas/HALTimestampedChargingSession'
+                    $ref: '#/components/schemas/HALTimestampedChargingSession'   
 
 
     ChargingSession:
@@ -2852,12 +2848,12 @@ components:
         - gain
       properties:
         state:
-              $ref: '#/components/schemas/LifecycleState'
-        start:
+              $ref: '#/components/schemas/LifecycleState'  
+        start:  
               description: Session start time.
               type: string
               format: date-time
-        end:
+        end:  
               description: Session end time.
               type: string
               format: date-time
@@ -2872,7 +2868,7 @@ components:
           $ref: '#/components/schemas/ChargingSessionEnergy'
         endEnergy:
           $ref: '#/components/schemas/ChargingSessionEnergy'
-        finishReason:
+        finishReason: 
             description: Charging Finish Reason refers to the reason that causes the charging session to end.
             type: string
             enum:
@@ -2885,28 +2881,28 @@ components:
             description: Segments of the session representing the offset of the charging power level, charge mode or charge speed changes.
             items:
                 $ref: '#/components/schemas/ChargingSessionSegment'
-        gain:
+        gain: 
             type: object
             description: The energy gained during this session.
             properties:
-              level:
+              level: 
                 description: The power percentage level gained during this session.
                 type: integer
-              autonomy:
+              autonomy: 
                 description: The vehicle autonomy level gained during this session. Unit is Km
                 type: integer
-              power:
+              power:  
                 description: The vehicle power gained during this session. Unit is Wh
                 type: integer
-        environment:
+        environment:  
             type: object
-            description: Charge session envehicle environement.
+            description: Charge session envehicle environement. 
             properties:
               temperatures:
                 type: object
                 description: Measurements of maximum and minimum temperatures during the charge session.
                 properties:
-                  max:
+                  max: 
                     type: number
                     format: float
                     description: Max collected temperature.
@@ -2914,8 +2910,8 @@ components:
                     type: number
                     format: float
                     description: Min collected temperature.
-
-
+              
+              
     ChargingSessionSegment:
       type: object
       properties:
@@ -2941,7 +2937,7 @@ components:
         chargingRate:
           type: integer
           description: Charging speed (expressed in gained batteryLife per hour -> KM/H).
-          example: 120  # Example charge rating in Km/hour
+          example: 120  # Example charge rating in Km/hour 
         chargingPowerLevel:
           type: integer
           description: Charging power level during the segment.
@@ -3027,7 +3023,7 @@ components:
       allOf:
         - $ref: '#/components/schemas/UpdatedAtField'
         - $ref: '#/components/schemas/CreatedAtField'
-        - description: Only blocks that have data for mandatory fields and atleast one optional field will be returned.
+        - description: Only blocks that have data for mandatory fields and atleast one optional field will be returned. 
         - title: Trip
           type: object
           required:
@@ -3066,19 +3062,19 @@ components:
               type: string
               format: date-time
               description: Date & Time when the trip stopped
-            startMileage:
+            startMileage: 
               type: number
               format: float
-              description: Vehicle mileage at the trip starting time.
+              description: Vehicle mileage at the trip starting time. 
             startEnergies: #LiteEnergy
-              description: Vehicle energies levels and autonomies at the trip start time.
+              description: Vehicle energies levels and autonomies at the trip start time. 
               type: array
-              items:
+              items: 
                $ref: '#/components/schemas/TripEnergy'
             endEnergies: #LiteEnergy
-              description: Vehicle energies levels and autonomies at the trip end time.
+              description: Vehicle energies levels and autonomies at the trip end time. 
               type: array
-              items:
+              items: 
                $ref: '#/components/schemas/TripEnergy'
             stats:
               $ref: '#/components/schemas/TripStatistics'
@@ -3086,10 +3082,10 @@ components:
               $ref: '#/components/schemas/TripState'
             locations:
               $ref: '#/components/schemas/TripLocation'
-
+    
     GenericSegment:
       type: object
-      properties:
+      properties: 
         offset:
           type: integer
           description: Offset of this segment in seconds.
@@ -3100,7 +3096,7 @@ components:
           description: The time duration of the segment.
           minimum: 0
           exclusiveMinimum: true
-          example: 5
+          example: 5 
     TripEnv:
       type: object
       description: Trip environment.
@@ -3152,12 +3148,12 @@ components:
           $ref: '#/components/schemas/TripKinetic'
         env:
           $ref: '#/components/schemas/TripEnv'
-        ecoCoaching:
+        ecoCoaching:  
           $ref: '#/components/schemas/EcoCoaching'
         drivingMode :
           properties:
               segments:
-                  $ref: '#/components/schemas/TripDrinvingModeSegments'
+                  $ref: '#/components/schemas/TripDrinvingModeSegments'  
     EcoCoaching:
       type: object
       required:
@@ -3179,7 +3175,7 @@ components:
         - offset
         - duration
         - acceleration
-      properties:
+      properties:  
         acceleration:
           allOf:
             - description: Segment Acceleration Score.
@@ -3195,13 +3191,13 @@ components:
         score:
           allOf:
             - description: Segment Overall Score.
-            - $ref: '#/components/schemas/ECScore'
-
+            - $ref: '#/components/schemas/ECScore'   
+          
     ECScore:
                 type: number
                 format: float
                 minimum: 0
-                maximum: 5
+                maximum: 5 
     TripKinetic:
       type: object
       properties:
@@ -3230,20 +3226,20 @@ components:
             segments:
               type: object
               properties:
-                hardAccelerations:
+                hardAccelerations: 
                       description: Hard acceleration segments.
                       type: array
                       items:
                         $ref: '#/components/schemas/TripKineticGForceSegment'
 
-                hardBrakings:
-                      description: Hard braking segments.
+                hardBrakings: 
+                      description: Hard braking segments. 
                       type: array
                       items:
                         $ref: '#/components/schemas/TripKineticGForceSegment'
-
-                hardCornerings:
-                    description: Hard cornering segments.
+                    
+                hardCornerings: 
+                    description: Hard cornering segments. 
                     type: array
                     items:
                       $ref: '#/components/schemas/TripKineticGForceSegment'
@@ -3253,7 +3249,7 @@ components:
         - $ref: '#/components/schemas/GenericSegment'
         - title: Trip Kinetic acceleration segment
           description: It represents acceleration, deceleration, or hard cornering time segments.
-          properties:
+          properties: 
             acceleration:
                 description: Acceleration value. It can be a non-zero positive or negative number.
                 type: number
@@ -3274,9 +3270,9 @@ components:
             - offset
             - duration
           description: It represents driving mode changes time segments.
-          properties:
+          properties: 
             mode:
-                $ref: '#/components/schemas/DrivingModeEnum'
+                $ref: '#/components/schemas/DrivingModeEnum'    
     TripState:
       description: Expresses ongoing state and faults that occur during the trip.
       properties:
@@ -3432,7 +3428,7 @@ components:
                     $ref: '#/components/schemas/Collision'
           required:
             - _embedded
-
+    
     StolenWayPoints:
       description: WayPoints of a Stolen context
       allOf:
@@ -3446,7 +3442,7 @@ components:
                   items:
                     $ref: '#/components/schemas/Position'
               required:
-                - positions
+                - positions        
     WayPoints:
       description: WayPoints of a Trip response
       allOf:
@@ -3461,7 +3457,7 @@ components:
                     $ref: '#/components/schemas/Position'
               required:
                 - positions
-
+    
     TripProfile:
       description: Body containing profile name (optional)
       type: array
@@ -3545,12 +3541,12 @@ components:
                 alarm:
                   $ref: '#/components/schemas/BaseAlarm'
                 stolen:
-                  $ref: '#/components/schemas/StolenBase'
+                  $ref: '#/components/schemas/StolenBase'  
                 powerTrain:
                   $ref: '#/components/schemas/PowerTrainBase'
             environment:
               $ref: '#/components/schemas/EnvironmentBase'
-
+            
           required:
             - createdAt
     Telemetries:
@@ -3671,7 +3667,7 @@ components:
     ChargePreferenceRateEnum:
       description: |
             Max amperage provided by the charge plug:
-
+              
             |<b>Charge Preference Rate</b>|<b>Description</b>|
             |---|---|
             |Low|20% of max amperage provided by the charge plug|
@@ -3876,18 +3872,18 @@ components:
     TripPositionCtxKinetic:
       type: string
       enum:
-
+      
         - HardBraking
         - HardAcceleration
         - HardCornering
-
+        
     TripStatsKineticEnum:
       type: string
       enum:
         - HardAcceleration
         - HardBraking
         - HardCornering
-
+ 
     Range:
       type: string
       pattern: \d+-\d*
@@ -3934,7 +3930,7 @@ components:
             - EcoPlus
             - eAWD
             - 4AWD
-            - ReinforcedLoad
+            - ReinforcedLoad    
             - City
             - SportPlus
             - OffRoad
@@ -3972,9 +3968,9 @@ components:
           type: string
           description: A human-readable message, describing the error. This message MUST be a description of the problem NOT a suggestion about how to fix it.
       example:
-        name: BAD_REQUEST
-        debug: ERROR_123456789
-        message: Invalid data provided.
+        name: BAD_REQUEST 
+        debug: ERROR_123456789 
+        message: Invalid data provided. 
       required:
         - name
         - message
@@ -4084,7 +4080,7 @@ components:
                 - ChannelId
                 - ChannelLabel
               description: |
-                A value  that will be associated with the provided key as is if expressed as literal value or  contextually valued if prefixed with the dollar sign ($).
+                A value  that will be associated with the provided key as is if expressed as literal value or  contextually valued if prefixed with the dollar sign ($).  
 
                 * example: Having a vin=VIN123456, the following attribute set:
                         ```"attributes": [
@@ -4094,8 +4090,8 @@ components:
                               "value":"$Vin"
                             }
                           ]```
-                  will be valued as http header extension:
-
+                  will be valued as http header extension: 
+                          
                   *"X-vehicle-id: VIN123456"*
       required:
         - key
@@ -4132,7 +4128,7 @@ components:
                 - ChannelId
                 - ChannelLabel
               description: |
-                A value  that will be associated with the provided key as is if expressed as literal value or  contextually valued if prefixed with the dollar sign ($).
+                A value  that will be associated with the provided key as is if expressed as literal value or  contextually valued if prefixed with the dollar sign ($).  
 
                 * example: Having a vin=VIN123456, the following attribute set:
                         ```"attributes": [
@@ -4142,8 +4138,8 @@ components:
                               "value":"$Vin"
                             }
                           ]```
-                  will be valued as http header extension:
-
+                  will be valued as http header extension: 
+                          
                   *"X-vehicle-id: VIN123456"*
       required:
         - key
@@ -4152,7 +4148,7 @@ components:
       example:
         type: Header
         key: X-Vehicle_Id
-        value: $Vin
+        value: $Vin    
     AttributeSet:
       type: array
       description: Additional attributes-set as key/value pairs wich will be added to the request when sending the event. It can be used as a header enhancement (such as headers can be used as an authentication parameter when posting the event) or simply added to the notification event body (as set of key/values) or finally as additional query parameters.
@@ -4200,19 +4196,19 @@ components:
                 - type: string
                   description: |
                          The key/value pair is included as is in the generic 'data' part of the notification If the key is not a reserved one and type is not ```Body```, otherwise, it  will be added as the the corresponding field of the [push-notification spec](https://firebase.google.com/docs/cloud-messaging/concept-options#customizing-a-message-across-platforms) of output message (at notification time).
-
-
-
-                            ## Keywords:
+                         
+                        
+                 
+                            ## Keywords:  
                              Those keywords, FCM and SSDP, can be used to customize notification messages and then used to customize the Firebase notification .
                             > * _Those attribute keys are optional but should be provided with their valid values with the respect of the format (see the table below) if set._
 
                             | Key   |      Category      |  Description |  Format |
-                            |----------|:-------------:|------:|------:|
+                            |----------|:-------------:|------:|------:| 
                             | disableNotificationPayload | iOS, Android and WebPush |If set to true, will remove ```notification ``` payload from the Firebase body when sending event message to Firebase. | ```"true"``` or  ```"false"```|
                             | deliveryPriority |iOS, Android and WebPush only|Define the message delivery priority for Android and WebPush platforms. It will be mapped on the FCM field: (Android > ```"priority"```), (iOS > ```"apns-priority"```) and (WebPush > ```"Urgency"```). |```"low"```, ```"normal"``` or  ```"high"```. (<b>note:</b> ```"low"``` will be mapped on normal (lowest level) on android and web push platforms)|
                             | mutable | iOS only|Set the apns payload mutable or not.  It will be mapped on the FCM field ```"mutable-content"```. For more details, see [FCM Protocol](https://firebase.google.com/docs/cloud-messaging/http-server-ref).  |```"true"``` or  ```"false"```|
-                            | contentAvailable |iOS only |this field to represent ```"content-available"``` in the APNs payload. It's used (<i>true value</i>) to wakeup an inactive client app. For more details, see [FCM Protocol](https://firebase.google.com/docs/cloud-messaging/http-server-ref)|```"true"``` or  ```"false"```|
+                            | contentAvailable |iOS only |this field to represent ```"content-available"``` in the APNs payload. It's used (<i>true value</i>) to wakeup an inactive client app. For more details, see [FCM Protocol](https://firebase.google.com/docs/cloud-messaging/http-server-ref)|```"true"``` or  ```"false"```|                            
                             | title | iOS, Android and WebPush |Title of the notification|not empty string|
                             | body | iOS, Android and WebPush|The notification's body text|not empty string|
                             | image| iOS, Android and WebPush |URL of the image displayed in a notification |not empty URL string [RFC 3986](https://tools.ietf.org/html/rfc3986)  (scheme://host[:port][/Path]|
@@ -4246,14 +4242,14 @@ components:
                                   "value":"$Vin"
                                 }
                               ]```
-                      will be valued at data map key/value:
-
-                      {"vehicle-id: VF123456"}
+                      will be valued at data map key/value: 
+                              
+                      {"vehicle-id: VF123456"}        
     PushNotifAttributeSet:
       description: Additional attributes-set as key/value pairs wich will be added to the request when sending the event. It can be used as a paylod key/value map enhancement or simply added to the notification event body (as set of key/value).
       type: array
       items:
-        $ref: '#/components/schemas/PushNotifAttribute'
+        $ref: '#/components/schemas/PushNotifAttribute'        
     DQAttribute:
       allOf:
         - $ref: '#/components/schemas/Attribute'
@@ -4269,7 +4265,7 @@ components:
       title: ChannelAttributes
       description: |
         Additional attributes that will add to or replace the specific channel (pushnotif, webhook or websocket) ones when sending the event.
-
+                
         * Note: Union attributes set. Only one of the following: pushnotif, webhook orwebsocket should be set and it should be consistent with the channel type to wich it is associated
       type: object
       properties:
@@ -4277,7 +4273,7 @@ components:
           description: Additional attributes-set as key/value pairs wich will be added to the request when sending the event. It can be used as a paylod key/value map enhancement or simply added to the notification event body (as set of key/value).
           type: array
           items:
-            $ref: '#/components/schemas/PushNotifAttribute'
+            $ref: '#/components/schemas/PushNotifAttribute'      
         webhook:
           description: Additional attributes-set as key/value pairs wich will be added to the request when sending the event. It can be used as a header enhancement (such as headers can be used as an authentication parameter when posting the event) or simply added to the notification event body (as set of key/values) or finally as additional query parameters.
           type: array
@@ -4330,7 +4326,7 @@ components:
                     - RemoteStatus
                     - RemoteLabel
                   description: |
-                    Set of variables that will be contextually valued and used as attribute value. To reference the variable, prefix its name with the dollar sign ($)
+                    Set of variables that will be contextually valued and used as attribute value. To reference the variable, prefix its name with the dollar sign ($)  
 
 
                     * example: Having a vin=VIN123456, the following attribute set:
@@ -4341,8 +4337,8 @@ components:
                                   "value":"$remoteType"
                                 }
                               ]```
-                      will be valued as http header extension:
-
+                      will be valued as http header extension: 
+                              
                       *"X-remoteType: Horn"*
     RemoteAttributeSet:
       type: array
@@ -4370,7 +4366,7 @@ components:
                     - MonitorID
                     - MonitorLabel
                   description: |
-                    Set of variables that will be contextually valued and used as attribute value. To reference the variable, prefix its name with the dollar sign ($)
+                    Set of variables that will be contextually valued and used as attribute value. To reference the variable, prefix its name with the dollar sign ($)  
 
                     * example: Having a vin=VIN123456, the following attribute set:
                             ```"attributes": [
@@ -4380,8 +4376,8 @@ components:
                                   "value":"$Vin"
                                 }
                               ]```
-                      will be valued as http header extension:
-
+                      will be valued as http header extension: 
+                              
                       *"X-monitorID: 0123456"*
     MonitorAttributeSet:
       type: array
@@ -4396,10 +4392,10 @@ components:
         An attribute set (_attributes_) entry allows you to insert any convenient data (as _message.data_ feld of FCM message) into all events sent through this channel.
 
         _**Note**_: Basic notification template is used across all platforms.
-
+                    
                     ```{
                       "name":string,
-                      "data":{
+                      "data":{ 
                         string:string,
                         ...
                       },
@@ -4408,15 +4404,15 @@ components:
                       },
                     "token": string
                     }```
-
-          |Fields   |           |
+                    
+          |Fields   |           |  
           |----------|:-------------:|
           |name|The identifier of the message to send|
           |data|Arbitrary key/value payload (filled from header attribut-set of channel and event)|
           |notification|Basic notification template(will expose the body of SSDP event) |
-
-
-        _**Note 2**_: During the Push-Notif Channel lifecycle, when a device has been unregistered by the OS and not by the API, the device ID will also be removed from the channel and if the Devices list is cleared then the channel status is set to 'Failed'.
+          
+          
+        _**Note 2**_: During the Push-Notif Channel lifecycle, when a device has been unregistered by the OS and not by the API, the device ID will also be removed from the channel and if the Devices list is cleared then the channel status is set to 'Failed'.          
       type: object
       properties:
         devices:
@@ -4427,15 +4423,15 @@ components:
             type: string
             pattern: ^(?!\s*$).+
         attributes:
-          $ref: '#/components/schemas/PushNotifAttributeSet'
+          $ref: '#/components/schemas/PushNotifAttributeSet' 
       required:
-        - devices
+        - devices       
     Websocket:
       title: Websocket
       description: |
-        Defines the websocket channel. This kind of channel distributes event messages in SI to SI way.
+        Defines the websocket channel. This kind of channel distributes event messages in SI to SI way.  
 
-        * An attribute set (_attributes_) entry allows you to insert any convenient data (as _message.data_ ) into all events sent through this channel.
+        * An attribute set (_attributes_) entry allows you to insert any convenient data (as _message.data_ ) into all events sent through this channel. 
         * It is strongly recommended to always use WebSocket over TLS (_secure WebSocket_) for production environment.
 
         * For authentication purpose, login/pwd as part of url query string can be used as equivalent to  _basic authrntication_.
@@ -4519,7 +4515,7 @@ components:
             - Paused
     MonitorChannelSubscribe:
       description: |-
-        Monitor channel subscription extension.
+        Monitor channel subscription extension. 
         * Note: At least one of the parameters must be provided.
       type: object
       properties:
@@ -4564,11 +4560,11 @@ components:
         MonitorParameter defines the vehicle monitor that will be used to detect the vehicle state transition. It defines state transition triggers, set of additional monitor attributes, extended event parameter (i.e. enrichment of monitor event from available vehicle data before sending) and an overload of the channel notification to which it is linked.
 
           However, it needs a set of necessary permissions for resources used for triggers and extended parameters:
-
+              
           * This API has therefore defined a set of  OAuth 2.0 Scopes to cover all possible monitor definitions. But the user should grant only the necessary SCOPEs for the requested monitor.
-
+            
           * Those Scopes are from the definitions of (if set) :
-              * <u>Zone</u> triggers.
+              * <u>Zone</u> triggers. 
               * <u>Data</u> triggers.
               * <u>Extenstions</u>.
               * <u>On event</u> actions.
@@ -4586,11 +4582,11 @@ components:
               type: array
               items:
                  enum: [vehicle.doorsState, vehicle.latestTelemetry, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts.active, vehicle.collision, vehicle.trip,vehicle.stolen,vehicle.alarm]
-              description: |
+              description: | 
                             Allow to set extra vehicle data (defined in data model) to add to the monitor event
                             when publishing. The possible values are :
-
-
+                            
+                            
                             |value|description|Related model |
                             |----------|:-------------|------:|
                             |vehicle.doorsState|Latest known door state (timestamped) before the eventDate|DoorState|
@@ -4604,10 +4600,10 @@ components:
                             |vehicle.trip|Trip related to the event that triggers the notification|Trip|
                             |vehicle.stolen|Vehicle Stolen report at the eventDate (only returns when vehicle is reported stolen) |Stolen|
 
-
-                            * For telemetry extension:
+                            
+                            * For telemetry extension:  
                               * The suffix ```${.TelemetryEnum}``` can be selected to refine with telemetry type (from the TelemetryEnum list). This value (with suffix) can be selected **_several times_** to included suitable telemetry messages with the extention.
-                              * Using ```vehicle.telemetry``` without suffix means to include all available telemetries.
+                              * Using ```vehicle.telemetry``` without suffix means to include all available telemetries. 
                             * The set of data will then correspond to the union of extensions used in the request.
         triggerParam:
               description: Monitor trigger-param that allows to compound triggers by applying a boolean expression to evaluate them.
@@ -4619,18 +4615,18 @@ components:
                             minItems: 1
                             maxItems: 5
                             items:
-                                $ref: '#/components/schemas/MonitorTrigger'
+                                $ref: '#/components/schemas/MonitorTrigger'      
                           boolExp:
                               type: string
                               description: |
-                                A boolean expression that allow defining a logical relationship between triggers. Used Operands with this expression should be the names of the defined triggers.
-
-                                  _Note:_
-
+                                A boolean expression that allow defining a logical relationship between triggers. Used Operands with this expression should be the names of the defined triggers. 
+                                 
+                                  _Note:_ 
+                                  
                                   Always ```true``` or Always```false``` expression are prohibited and will result with an http 400 error response.
-
+                                  
                                   Setting trigger allows only one operand in the expression.We can have a boolean expression such as:  (s1)
-
+                                  
                                 Grammar:
                                 ```
                                 exp ::= exp '&' exp
@@ -4638,9 +4634,9 @@ components:
                                        | (exp)
                                        | !exp
                                 ```
-
+                                
                                 * **example**: having two-zone trigger (two towns) named z1 an z2, one time-trigger (8h00 to 20h00) named t1 and finally three data triggerd named as follow: f(fuel), a(autonomy) , o(odometer).
-
+                                  
                                   we can have a boolean expression such as: : ``` ((z1 & t1) | (z2 & !t1) | (f & z1) | (a & (z1|t))  | (o & (z1 | z2))) ```
                               example :
                                 ((z1 & t1) | (z2 & !t1) | (f & z1) | (a & (z1|t))  | (o & (z1 | z2)))
@@ -4711,7 +4707,7 @@ components:
                   $ref: '#/components/schemas/MonitorHandleVehicleIds'
                 groups:
                    $ref: '#/components/schemas/MonitorHandleGroupIds'
-
+              
     MonitorStatusSetter:
       allOf:
         - $ref: '#/components/schemas/RunStatusSetter'
@@ -4737,35 +4733,35 @@ components:
         groups:
              $ref: '#/components/schemas/MonitorHandleGroupIds'
     MonitorTrigger:
-      title: MonitorTrigger
+      title: MonitorTrigger  
       description: >
-        Monitor trigger.```Only one```of *Zone, Time or Data* is supported at a time. Otherwise it would cause a bad request response.
+        Monitor trigger.```Only one```of *Zone, Time or Data* is supported at a time. Otherwise it would cause a bad request response.  
       properties:
-        name:
+        name: 
           description: 'The trigger name must be uniq and respect the following pattern'
           pattern: "\"[a-zA-Z]+[._]?[0-9]*\""
           type: string
-        zone:
+        zone: 
              $ref: '#/components/schemas/ZoneTrigger'
-        time:
+        time: 
              $ref: '#/components/schemas/TimeTrigger'
-        data:
+        data: 
              $ref: '#/components/schemas/DataTrigger'
-        setting:
+        setting: 
              $ref: '#/components/schemas/SettingTrigger'
       required:
         - name
     SettingTrigger:
       title: SettingTrigger
-      description:   |
+      description:   | 
                          A monitor for triggering the vehicle settings change event.
-
+                        
                           * Note: It is exculsive with other triggers
       properties:
             type:
-              description:  |
+              description:  | 
                          Setting monitoring type.
-
+                        
                           * DigitalKey: it will track vehicle digital key process like delete key, owner pairing etc
                           * LastMileNavigation: it will detect LMN event.
               type: string
@@ -4773,7 +4769,7 @@ components:
                 - DigitalKey
                 - LastMileNavigation
       required: [type]
-      example:
+      example: 
         type: DigitalKey
     ZoneTrigger:
       title: ZoneTrigger
@@ -4807,14 +4803,14 @@ components:
                             format: double
                         required: [longitude, latitude]
       required: [place, transition]
-      example:
+      example: 
         transition: Out
         place:
           radius: 20
           center:
             longitude: 2.333333
             latitude:  48.866667
-
+    
     TimeTrigger:
       title: TimeTrigger
       description: Temporal monitor for triggering vehicle moving event within a time interval.
@@ -4824,23 +4820,23 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/TimeTriggerEntry'
-            timeZone:
+            timeZone: 
               type: string
               pattern: \w?/\w?
               default: Europe/Paris
-              description: The standard time [zone code](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the region where to apply this time trigger monitor.
+              description: The standard time [zone code](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the region where to apply this time trigger monitor. 
                   This allows to adapt this trigger to the time change according to local (region/country) criteria/rules.
               example: Europe/Paris
-
-
+    
+            
     DataTrigger:
       title: DataTrigger
       description: A monitor for triggering the vehicle data change event.
       properties:
         data:
-          description: |
+          description: | 
             The left operand of the trigger function. The following Table details for each operand data its type, the supported operator and the possibly retruned value:
-
+            
             |**Data**|**Type**|**Op**|
             |---|---| ---:|
             | vehicle.alert | Enum(AlertMsgEnum) | includedIn/equalsTo/onChange
@@ -4871,16 +4867,16 @@ components:
             | environment.air.temp | Number(unsigned) | equalsTo/greaterThan/lowerThan
             | privacy.state | Enum(Privacy.state) | equalsTo /includedIn /onChange
             | vehicle.drivingBehavior.mode | Enum(DrivingBehavior.mode) | equalsTo /includedIn/onChange
-            | vehicle.collision.side | Enum(Collision.details.side) | equalsTo / includedIn
-            | vehicle.collision.severity | Enum(Collision.details.severity) | equalsTo / includedIn
+            | vehicle.collision.side | Enum(Collision.details.side) | equalsTo / includedIn 
+            | vehicle.collision.severity | Enum(Collision.details.severity) | equalsTo / includedIn 
             | vehicle.safety.autoECallTriggering | Enum(Safety.autoECallTriggering) | equalsTo /includedIn/onChange
             | vehicle.preconditioning.airConditioning | N/A| onChange
             | vehicle.alarm.trigger.type | Enum(AlarmTrigger.type)| equalsTo/includedIn/onChange
-            | vehicle.alarm.status.activation | Enum(AlarmStatus.activation)| /equalsTo/onChange
+            | vehicle.alarm.status.activation | Enum(AlarmStatus.activation)| /equalsTo/onChange 
             | stolen.state |Boolean| equalsTo
-
+                        
             The right operand  (value) argument depends on the type of operation (OP) as following:
-
+              
               * onChange: no value because we are monitoring the change between two states (before and after).
               * includedIn: value must be an array of size> = 1
               * equalsTo, greaterThan and lowerThan: the value must be an array of size = 1.
@@ -4897,7 +4893,7 @@ components:
             - vehicle.autonomy
             - vehicle.energy.charging.status
             - vehicle.energy.charging.plugged
-            - vehicle.energy.charging.type
+            - vehicle.energy.charging.type 
             - vehicle.doorsState.lockedState
             - vehicle.doorsState.opening
             - vehicle.kinetic.moving
@@ -4923,7 +4919,7 @@ components:
             - stolen.state
           example : vehicle.energy.fuel.level
         op:
-            description: The operator of the trigger function.
+            description: The operator of the trigger function.                          
             type: string
             enum: [equalsTo, greaterThan, lowerThan, includedIn, onChange]
             example : greaterThan
@@ -4934,10 +4930,10 @@ components:
             type: array
             items:
               type: string
-        previous:
+        previous: 
           description: |
             The previous trigger state represents the initial state of the monitored data that allow its trigger to fire.  Only data that is in the following list is allowed. A 'previous data state' defined here must match with the defined one in the trigger data.
-
+                        
             |**Previous Data**|**Type**|**Eligible Op**|**Previous Value**|**oAuth2 scope**|
             |---|---| ---:| ---:|---:|
             |vehicle.alert|Enum(AlertMsgEnum)|includedIn/equalsTo| Value (AlertMsgEnum)|alert|
@@ -4946,27 +4942,27 @@ components:
             |vehicle.energy.charging.plugged|Boolean|equalsTo| Value (true/false)|telemetry:vehicle:energies|
             |vehicle.kinetic.moving|Boolean|equalsTo| Value (true/false)|telemetry:vehicle:kinetic|
             |vehicle.safety.beltWarning|Enum(BeltStatus.belt) | equalsTo| Value(Enum(BeltStatus.belt))|telemetry:vehicle:safety|
-            |vehicle.safety.autoECallTriggering| Enum(Safety.autoECallTriggering) | equalsTo /includedIn| Value(enum)  |telemetry:vehicle:safety|
+            |vehicle.safety.autoECallTriggering| Enum(Safety.autoECallTriggering) | equalsTo /includedIn| Value(enum)  |telemetry:vehicle:safety| 
             |privacy.state| Enum(Privacy.state) | equalsTo /includedIn  | Value(Enum(Privacy.state))|telemetry:privacy|
-            |vehicle.drivingBehavior.mode|Enum(DrivingBehavior.mode) | equalsTo /includedIn| Value(Enum(DrivingBehavior.mode)|telemetry:vehicle:drivingBehavior|
+            |vehicle.drivingBehavior.mode|Enum(DrivingBehavior.mode) | equalsTo /includedIn| Value(Enum(DrivingBehavior.mode)|telemetry:vehicle:drivingBehavior|                           
 
-            _Note:_
+            _Note:_  
               * This state will only be interpreted on the first triggering of the trigger. For the triggering due to "refresh" mode, this previous state will not be taken into account.
               * If the trigger predicate backs to 'false' then the previous state becomes again an initial necessary condition  to trigger the monitored data.
-
+              
             The  value  depends on the type of Eligible OP  as following (if a :
-
+              
               * includedIn: value must be an array of size> = 1
               * equalsTo: the value must be an array of size = 1.
           type: object
-          properties:
+          properties: 
             value:
                 description: The trigger previous state data literal value.
                 type: array
                 items:
                   type: string
             op:
-              description: The operator of the previous trigger function.
+              description: The operator of the previous trigger function.                          
               type: string
               enum: [equalsTo, includedIn]
           required: [value, op]
@@ -5081,18 +5077,16 @@ components:
               default: false
               description: Determines whether air conditioning will start immediately or not independently if scheduled ```programs``` are set or not. Set to "false" by default..
             programs:
-              description: |
-                         List of air conditioning programs to schedule on vehicle.Air conditioning program to schedule on vehicle. ```Be aware about the action type (see below)```.
-
+              description: | 
+                         List of air conditioning programs to schedule on vehicle. ```Be aware about the action type (see below)```.
+                        
                           * _Note_:The requirement to have fields provided or not depends on the value of the fields "actionsType".indeed, fields are provided when:
-
+                          
                               |<b>actionsType</b>|<b> Mandatories</b> |
                               | :------------------: | :-------------------: |
-                              |- Set |<p> start</p> |
-                              |- Set |<p> slot</p> |
-                              |- Set |<p> enabled</p> |
-                              |- Set |<p> occurrence</p> |
-
+                              |- Set |<p>slot, start,occurence,enabled</p> |
+                               |- Delete |<p>slot</p> |
+                           
                           ## *The field  ```actionsType```is not mandatory and will be set to ```'Set'``` value if not provided.*
               type: array
               items:
@@ -5103,15 +5097,15 @@ components:
                   - $ref: '#/components/schemas/PrecondProgramSlot'
                   - $ref: '#/components/schemas/ProgramActionsType'
                   - required:
-                      - start
+                      
                       - slot
-                      - enabled
-                      - occurrence
+                     
+                      
             settings:
               type: object
               $ref: '#/components/schemas/PrecondSettings'
       required:
-        - airConditioning
+        - airConditioning        
     RemoteCharging:
       type: object
       description: Remote charging the vehicle.
@@ -5126,7 +5120,7 @@ components:
               default: false
               description:  Determines if the charging will start immediately(```true```) or not.
             programs:
-              description: |
+              description: | 
                          List of charging programs to schedule on vehicle.Number of charging Programs supported can be obtained from Capability API. Charging program to schedule on vehicle. ```Please refer to capability API for fields that needs to be provided if actionType is Set.```
               type: array
               items:
@@ -5149,13 +5143,13 @@ components:
             - properties:
                 stop:
                     type: string
-                    description: |
+                    description: | 
                               The charge end time formatted using the duration format based on [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) with the schema: P[n]Y[n]M[n]DT[n]H[n]M[n]S and whose value is between 0H and 23h59
-
+          
                               _example_: PT4H30M : means 4H30min
                 stopChargeStatus:
                     type: string
-                    description: |
+                    description: | 
                                   Status of delayed stop charge.
                                   one of following enums status will be set:
                                     | Enum | Description |
@@ -5165,7 +5159,7 @@ components:
                                     | Successful | The most recent stop charge was successful. |
                                     | StopChargeFailed | Failed to stop charging. |
                                     | ChargeEndTimeScheduleFailed| The programming of the end of charge failed; the charging should not stop at the requested time. |
-
+                                                              
 
 
                     enum:
@@ -5177,7 +5171,7 @@ components:
 
 
     ChargingProgram:
-
+      
               description: Charging program to schedule on vehicle
               required:
               - minChargingLevel
@@ -5216,18 +5210,19 @@ components:
                     - Regular
                     - Cooperative
                   default: Regular
-
+    
     ProgramActionsType:
       type: object
       properties:
         actionsType:
-          description: |
+          description: | 
               Action type to apply for this program:
-
+              
               * Set: Create a new programe o update it if existing. Need to provide all field correctly set.
-  #
+              * Delete: Delete programs. Only slot number is required for delete
+  #                            
           type: string
-          enum: [Set]
+          enum: [Set,Delete]
           default: Set
     PrecondProgramSlot:
       type: object
@@ -5265,22 +5260,22 @@ components:
       required:
         - temp
     DeferredCharge:
-      type: object
+      type: object  
       description: Action to perform charging.
       properties:
         start:
           type: object
           description: Start Charging. ```startTime``` and ```immediate``` can not be used together and are mutually exclusive. Mixing them will result in an error (HTTP 400).
           # required:
-          #   - startTime
+          #   - startTime 
           #   - immediate
           properties:
             startTime:
               type: string
-              description: |
+              description: | 
                     The start time formatted using the duration format based on [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) with the schema: P[n]Y[n]M[n]DT[n]H[n]M[n]S and whose value is between 0H and 23h59
-
-                        _example_: PT14H30M : means 14H30min.
+      
+                        _example_: PT14H30M : means 14H30min.                      
             immediate:
               type: boolean
               default: false
@@ -5293,9 +5288,9 @@ components:
           properties:
             endTime:
               type: string
-              description: |
+              description: | 
                     The end time formatted using the duration format based on [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) with the schema: P[n]Y[n]M[n]DT[n]H[n]M[n]S and whose value is between 00H and 23h59.This field need to be provided only if ChargeToFull is not true
-
+      
                         _example_: PT14H30M : means 14H30min
             chargeToFull:
               description: Attribute defining whether the charging needs to continue until the battery is fully charged.
@@ -5308,7 +5303,7 @@ components:
         chargePreferenceRate:
           description: |
             Max amperage provided by the charge plug:
-
+              
             |<b>Charge Preference Rate</b>|<b>Description</b>|
             |---|---|
             |Low|20% of max amperage provided by the charge plug|
@@ -5326,11 +5321,11 @@ components:
         chargeLimit:
           description: |
             maximum battery state :
-
+              
             |<b>Charge Limit</b>|<b>Description</b>|
             |---|---|
             |MedPlus|charge up to either a max of 80%|
-            |High|charge up to either a max of 100%|
+            |High|charge up to either a max of 100%| 
           type: string
           enum:
             - MedPlus
@@ -5388,19 +5383,19 @@ components:
                       description : Declare whether the vehicle is stolen or not (set at ```True``` to report as stolen).
                       type: boolean
                       example : true
-
+                    
                     crankInhibit:
                       type: object
                       description: Requesting the stolen vehicle for immobilization by inhibiting the crank.
                       properties:
                         activate:
                             type: boolean
-                            description :  Set, if ```true```, the vehicle as immobilized or not (otherwise).
-                      required: [activate]
+                            description :  Set, if ```true```, the vehicle as immobilized or not (otherwise). 
+                      required: [activate] 
     RemoteTan:
       type: object
       description: Remote operation to update Theft Alarm Notification suppression state and confirmation state.<b> Only one attribute can be used at a time.</b>
-
+      
       properties:
         suppress:
           type: object
@@ -5416,7 +5411,7 @@ components:
               maximum: 5
               description: |
                 Required only if "state" is set to true. If provided when "state is false, it will be ignored.
-
+                
                 | Value | Duration |
                 |----------|:-------------:|
                 | 0 | TwoHours |
@@ -5425,7 +5420,7 @@ components:
                 | 3 | TwentyfourHrs |
                 | 4 | ThreeDays |
                 | 5 | SevenDays |
-
+              
           required:
             - state
         confirm:
@@ -5437,7 +5432,7 @@ components:
               type: boolean
               example: true
           required:
-            - state
+            - state       
     RemoteNavigation:
       type: object
       description: A remote to share GPS positions with the vehicle so it can navigate through those positions by driving from start (1st) to end (last) position.
@@ -5487,15 +5482,16 @@ components:
             navigation:
               $ref: '#/components/schemas/RemoteNavigation'
             vehicleFinder:
-              $ref: '#/components/schemas/RemoteVF'
+              $ref: '#/components/schemas/RemoteVF'  
             stolen:
-              $ref: '#/components/schemas/RemoteStolen'
+              $ref: '#/components/schemas/RemoteStolen'  
             tan:
               $ref: '#/components/schemas/RemoteTan'
       required : [action]
     ChannelRef:
       allOf:
         - $ref: '#/components/schemas/CreatedAtField'
+        - $ref: '#/components/schemas/UpdatedAtField'
         - type: object
           description: channel reference returned when posting/getting a channel.
           properties:
@@ -5513,8 +5509,10 @@ components:
             - channelId
             - status
             - createdAt
+            - updatedAt
     ChannelUpdateRef:
       allOf:
+        - $ref: '#/components/schemas/CreatedAtField'
         - $ref: '#/components/schemas/UpdatedAtField'
         - type: object
           description: channel reference returned when posting/getting a channel.
@@ -5533,6 +5531,7 @@ components:
             - channelId
             - status
             - updatedAt
+            - createdAt
     RemoteActionStatus:
       type: string
       enum: [Accepted, Failed, Success, AlreadyDone, WakingUpVehicle, CheckingVehicle, SentToVehicle, VehicleBatteryChargeTooLow,TooManyWakeUpsOverMonth, VehicleBatteryLevelWarning]
@@ -5655,7 +5654,7 @@ components:
             pairing:
               type: object
               properties:
-                url:
+                url: 
                   $ref: '#/components/schemas/Url'
                   description: Pairing url
                   example: http://wallet.apple.com/setup/carkey-pairing?issuer=MOCK#pleaseletmein
@@ -5679,7 +5678,7 @@ components:
               $ref: '#/components/schemas/Remote'
             status:
               $ref: '#/components/schemas/RemoteActionStatus'
-            failureCause:
+            failureCause:   
                   $ref: '#/components/schemas/RemoteFailedEventStatus'
           required:
             - _links
@@ -5706,7 +5705,7 @@ components:
       enum: [root]
       description:  |
                 Unique group ID. Only the "*root*" ID is currently allowed for fleet management. The root group ID covers all vehicles belonging to the account, i.e., the partner vehicle fleet.
-                * Any group request coming from a customer account will not be supported.
+                * Any group request coming from a customer account will not be supported.  
     GroupObj:
       description: A vehicles group.
       type: object
@@ -5758,7 +5757,7 @@ components:
                   description: List of groups.
                   type: array
                   items:
-                    $ref: '#/components/schemas/GroupId'
+                    $ref: '#/components/schemas/GroupId' 
     ChannelId:
       type: string
       pattern: ([0-9a-fA-F]|-|_)*
@@ -5766,22 +5765,27 @@ components:
     Channel:
       description: channel state.
       type: object
-      properties:
-        _links:
-          type: object
-          properties:
-            self:
-              $ref: '#/components/schemas/Link'
-        id:
-          $ref: '#/components/schemas/ChannelId'
-        subscribe:
-          $ref: '#/components/schemas/ChannelSubscribe'
-        status:
-          $ref: '#/components/schemas/RunStatus'
+      allOf:
+        - $ref: '#/components/schemas/CreatedAtField'
+        - $ref: '#/components/schemas/UpdatedAtField'
+        - properties:
+            _links:
+              type: object
+              properties:
+                self:
+                  $ref: '#/components/schemas/Link'
+            id:
+              $ref: '#/components/schemas/ChannelId'
+            subscribe:
+              $ref: '#/components/schemas/ChannelSubscribe'
+            status:
+              $ref: '#/components/schemas/RunStatus'
       required:
         - status
         - id
         - subscribe
+        - createdAt
+        - updatedAt
     Channels:
       allOf:
         - $ref: '#/components/schemas/CollectionResult'
@@ -5804,19 +5808,19 @@ components:
                 vehicleIds:
                   $ref: '#/components/schemas/MonitorHandleVehicleIds'
                 groups:
-                   $ref: '#/components/schemas/MonitorHandleGroupIds'
+                   $ref: '#/components/schemas/MonitorHandleGroupIds' 
     MonitorHandleVehicleIds:
                   description: Vehicle ids associated with the monitor.
                   type: array
                   items:
                     description: Vehicle number identifier.
-                    type: string
+                    type: string          
     MonitorHandleGroupIds:
                   type: array
-                  description: |
+                  description: | 
                       List of groups handled by the monitor.
                   items:
-                    $ref: '#/components/schemas/GroupId'
+                    $ref: '#/components/schemas/GroupId'       
     ChannelStatusSetter:
       allOf:
         - $ref: '#/components/schemas/RunStatusSetter'
@@ -6007,11 +6011,11 @@ components:
                 type: string
                 description: |
                   The selected type should be consistent with the action defined in the object:
-                    | type   | required field|
+                    | type   | required field| 
                     |----------|:-------------:|
-                    | Notify |<i> no field</i>|
-                    | Remote |remoteAction|
-                    | Monitor|monitorAction |
+                    | Notify |<i> no field</i>| 
+                    | Remote |remoteAction|   
+                    | Monitor|monitorAction |  
                   otherwise, a *'bad query paramter (HTTP 400)'* is returned.
                   * Note: All necessary authorization scopes for the defined actions should be granted when creating the 'on-event' entry within Monitor and Remote object.
                 enum:
@@ -6143,7 +6147,7 @@ components:
                     - datastreamType
                     - fleetID
                   description: |
-                    Set of variables that will be contextually valued and used as attribute value. To reference the variable, prefix its name with the dollar sign ($)
+                    Set of variables that will be contextually valued and used as attribute value. To reference the variable, prefix its name with the dollar sign ($)  
 
                     * Disclaimer: if the var "vin" is used as a query parameter, the batchnotify will be no more possible and each event will be sent through a separated request!.
                     * example: Having a vin=VIN123456, the following attribute set:
@@ -6154,8 +6158,8 @@ components:
                                   "value":"$vin"
                                 }
                               ]```
-                      will be valued as http header extension:
-
+                      will be valued as http header extension: 
+                              
                       *"X-vehicle-id: VIN123456"*
     DataStreamAttributeSet:
       type: array
@@ -6227,12 +6231,12 @@ components:
     GroupMaintain:
       title: GroupMaintain
       description: |
-        The 'Add' and 'Remove' actions require a Vin list while the 'Copy' action requires the 'groups' parameter. The parameters must therefore be submitted with  consistency (see below) otherwise, an error (400) will be raised.
+        The 'Add' and 'Remove' actions require a Vin list while the 'Copy' action requires the 'groups' parameter. The parameters must therefore be submitted with  consistency (see below) otherwise, an error (400) will be raised. 
 
-        | Action  | Mandatory field  |
+        | Action  | Mandatory field  |  
         |---|---|
-        | Add  | vins (non empty)  |
-        | Remove   | vins (non empty)  |
+        | Add  | vins (non empty)  | 
+        | Remove   | vins (non empty)  | 
         | Copy  | groups (non empty)  |
       properties:
         action:
@@ -6248,7 +6252,7 @@ components:
             type: string
         groups:
           type: array
-          description: |
+          description: | 
               List of groups handled by the monitor.
           items:
             $ref: '#/components/schemas/GroupId'
@@ -6265,9 +6269,9 @@ components:
               - vehicle.position
               - vehicle.alerts.active
               - vehicle.alarm
-
-
-
+              
+              
+  
           description: |
             Allow to set extra vehicle data (defined in data model) to add to the Monitor/Remote event
             when publishing. The possible values are :
@@ -6281,10 +6285,10 @@ components:
             |vehicle.position|Last vehicle position (timestamped) at the eventDate|Position|
             |vehicle.alerts.active|List of active alerts at the eventDate|Alert|
             |vehicle.alarm|Latest Vehicle alarm status and trigger|Alarm|
+           
 
 
-
-
+            
 
 
 ## Stolen data
@@ -6301,7 +6305,7 @@ components:
                     $ref: '#/components/schemas/Stolen'
     StolenBase: # used with telemetry exposure
       type: object
-      description: The current reported Vehicle Stolen status.
+      description: The current reported Vehicle Stolen status. 
       properties:
         _links:
           type: object
@@ -6333,36 +6337,36 @@ components:
             - $ref: '#/components/schemas/Position'
             - description: The position (last vehicle known one) where the vehicle is reported stolen.
                            <b>The stolen vehicle position is set only if the API requester has the rights to access such data.</b>
-            - example:
+            - example: 
                 type": "Feature"
-                geometry:
+                geometry: 
                   type: "Point"
-                  coordinates": [5.970338,-62.536239]
+                  coordinates": [5.970338,-62.536239] 
 
         endPosition:
           allOf:
             - $ref: '#/components/schemas/Position'
-            - description: The position (last vehicle known one) where the stolen state is not active anymore.
+            - description: The position (last vehicle known one) where the stolen state is not active anymore. 
                            <b>The stolen vehicle position is set only if the API requester has the rights to access such data.</b>
-            - example:
+            - example: 
                 type": "Feature"
-                geometry:
+                geometry: 
                   type: "Point"
-                  coordinates": [5.780338,-63.63000]
-      required: [ id,state,createdAt,startedAt, _links]
+                  coordinates": [5.780338,-63.63000] 
+      required: [ id,state,createdAt,startedAt, _links] 
     Stolen:  # used with Stolen api
-      allOf:
+      allOf: 
         - title: Vehicle stolen status
         - $ref: '#/components/schemas/CreatedAtField'
         - $ref: '#/components/schemas/UpdatedAtField'
         - $ref: '#/components/schemas/StolenBase'
-        - description: The Vehicle Stolen status.
+        - description: The Vehicle Stolen status. 
     StolenObj: # used with latest telemtry api
-      allOf:
+      allOf: 
         - title: StolenStatus
         - $ref: '#/components/schemas/CreatedAtField'
         - $ref: '#/components/schemas/StolenBase'
-        - description: The last known Vehicle Stolen report.
+        - description: The last known Vehicle Stolen report. 
 
 ###################### PARAMETERS
   parameters:
@@ -6392,7 +6396,7 @@ components:
       description: id of the stolen state.
       required: true
       schema:
-        type: string
+        type: string        
     tanConfirm:
       name: isAccept
       in: path
@@ -6433,7 +6437,7 @@ components:
       description: the *id* of Trip
       schema:
         type: string
-    chargeSessionId:
+    chargeSessionId:   
       name: sid
       in: path
       required: true
@@ -6483,7 +6487,7 @@ components:
         Additional data set that will be included in embedded field```(the number of elements in this array must be between 1 and 1)```.
       required: false
       schema:
-        $ref: '#/components/schemas/VehicleExtensionType'
+        $ref: '#/components/schemas/VehicleExtensionType' 
     timestamps:
       name: timestamps
       in: query
@@ -6493,7 +6497,7 @@ components:
         data  model).**"timestamp"** items should be expressed as in
         '[RFC3339](https://www.ietf.org/rfc/rfc3339.txt)'. Each element of the array expresses a time range (with the pattern ```\w?/\w?``` or ```R\d?/w/w(/w)?```) which is the period between two or more times. The range can be expressed by two times Points (start and end *Timestamp*s), by a start
               *Timestamp* Point and a *Duration* or as a repeating interval. All of
-              them  should be expressed using the
+              them  should be expressed using the 
               [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) and the interval format
               is based on
               [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals)
@@ -6508,21 +6512,21 @@ components:
 
                   '/T' startless range, known end date but no start date. No lower limit
                     will be used to retrieve results.
-
-                  Rn/T/D/[d]  repeat the interval of D **n** times starting at T using **d** (extension of the standard and not mandatory) as range duration. The default (duration) value of d is 24 H
-
+                    
+                  Rn/T/D/[d]  repeat the interval of D **n** times starting at T using **d** (extension of the standard and not mandatory) as range duration. The default (duration) value of d is 24 H 
+                  
                   R/T/D/[d] unbounded number of repetitions starting at T using **d** (extension of the standard and not mandatory) as range duration. The default (duration) value of d is 24 H.
 
 
                     *T is a timestamp and D is a duration  as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).*
-        *Example:*
-
+        *Example:*          
+                    
                   2018-01-01T09:00:00+01:00/2018-01-01T12:00:00+01:00* known low and hight limits.
 
                   2018-01-03T12:00:00+01:00/P3Y6M4DT12H30M5S*  known low limit, hight limit = start + duration.
 
                   2018-01-03T12:00:00+01:00/*  known low limit, hight limit = current time.
-
+                    
                   R5/2018-01-03T12:00:00Z/PT6H/PT2H* repeate duration 6H wiht interval period of 2H for 5 times starting at 2018-01-03T12:00:00Z.
       required: false
       schema:
@@ -6558,15 +6562,15 @@ components:
       description: |
         Results indexes will be included in this range. this range is used to express the first (offset) and the last results          index  to retrieve. With the respect to the regex pattern ```\d+(-\d*)?```,
                   the start of  range is mandatory ( 0 for default). Bad Request response will be returned if pageToken is also sent along with indexRange
-
-
-        *Example:*
-
+          
+          
+        *Example:*  
+          
                   *  '0-9'  : start=0, end=9    ==> offset=0 and number of items=10
-
-
+          
+          
                   * '5-'    : start =5, no end  ==> start at 5th to the end results.
-
+          
           default: 0-
 
           example: 0-, 0-5
@@ -6580,10 +6584,10 @@ components:
     sortpreference:
       name: sort
       in: query
-      description: Results will be sorted based on user preference
+      description: Results will be sorted based on user preference 
       required: false
       schema:
-        $ref: '#/components/schemas/sortenum'
+        $ref: '#/components/schemas/sortenum'        
     tripreportsummaryType:
       name: summarytype
       in: query
@@ -6593,7 +6597,7 @@ components:
     orderBy:
       name: orderBy
       description: Orderby ( dafault in descending order)
-      in: query
+      in: query 
       schema:
          type: string
          default: descending
@@ -6607,7 +6611,7 @@ components:
       required: false
       schema:
         $ref: '#/components/schemas/AlarmTypeEnum'
-
+    
     tolerence:
       name: tolerance
       description: |
@@ -6649,7 +6653,7 @@ components:
       in: query
       description: Enable filtering on prefixed groups ids only.
       schema:
-        type: string
+        type: string 
     groupIdQry:
       name: gId
       description: Enable filtering on vehicles belonging to this group.
@@ -6718,15 +6722,15 @@ components:
         $ref: '#/components/schemas/Range'
       required: false
       description: |
-        Trip duration validity interval. It allows to  define the min or max duration of a trip. **Unit = sec** "
-
-        *Example:*
-
+        Trip duration validity interval. It allows to  define the min or max duration of a trip. **Unit = sec** "  
+          
+        *Example:*  
+          
                   * 10-3600: Trip with duration between 10 sec and 1 hour.
-
-
+          
+          
                   * 20-: Trip with duration greater than 20 sec.
-
+          
           default: 0-
     tripStatsKinetic:
       name: kinetics
@@ -6764,14 +6768,14 @@ components:
       description: |
         Trip distance  validity interval. It allows to  define the min or max duration of a trip.  **Unit = Km** and format : float.
 
-        only one digit after the decimal point is aceepted for the interval bounds
-        *Example:*
-
+        only one digit after the decimal point is aceepted for the interval bounds  
+        *Example:*  
+          
                   * 1-150: Trip with distance between 1 Km and 150 km .
-
-
+          
+          
                   * 0.1-: Trip with distance  greater than 100 m.
-
+          
           default: 0-
     tripState:
       description: |
@@ -6790,12 +6794,12 @@ components:
       required: false
       description: |
         The battery gained power (Wh) validity interval. It allows to filter the minimum and/or maximum gained power of a charing session.  **Unit = Wh** and format : integer.
-        *Example:*
-
+        *Example:*  
+          
                   * 1000-3000: Charging session with gained power between 1 KWh and 3 KWh.
-
+                  
                   * 2000-: Charging session with gained power greater than 2 KWh.
-
+          
           default: 0-
     chargingLevel:
       name: level
@@ -6805,13 +6809,13 @@ components:
       required: false
       description: |
         The battery gained charge level validity interval. It allows to filter on the minimum and/or maximum charge level of a charing session.  **Unit = %** and format : integer.
-        *Example:*
-
+        *Example:*  
+          
                   * 20-80: Charging session with gained level between 20% and 80%.
-
+                  
                   * 50-: Charging session with gained level greater than 50%.
-
-          default: 0-
+          
+          default: 0-  
 
     chargingAutonomy:
       name: autonomy
@@ -6821,13 +6825,13 @@ components:
       required: false
       description: |
         The battery gained autonomy validity interval. It allows to filter on the minimum and/or maximum gained autonomy of a charing session.  **Unit = Km** and format : integer.
-        *Example:*
-
+        *Example:*  
+          
                   * 200-250: Charging session with gained autonomy between 200 KWh and 250 KWh.
-
+                  
                   * 300-: Charging session with gained autonomy greater than 300 Km.
-
-          default: 0-
+          
+          default: 0-                        
     state:
       description: |
         Allow to filter with defined states. Those states can be compound of : _Nominal,Unstarted, DataLacking, Unfinished_.
@@ -6845,15 +6849,15 @@ components:
         $ref: '#/components/schemas/Range'
       required: false
       description: |
-        Duration validity interval. It allows to  define the min or max duration. **Unit = sec** "
-
-        *Example:*
-
+        Duration validity interval. It allows to  define the min or max duration. **Unit = sec** "  
+          
+        *Example:*  
+          
                   * 10-3600 : Duration between 10 sec and 1 hour.
-
-
+          
+          
                   * 20- : Duration greater than 20 sec.
-
+          
           default: 0-
   responses:
     CollisionsuccessResponse:
@@ -6901,17 +6905,17 @@ components:
     TripFailedResponse:
       description: Trip request error
       $ref: '#/x-fragment/general_error_fragment'
-
+    
     TripsSettingsFailedResponse:
       description: Trip settings request error
       $ref: '#/x-fragment/general_error_fragment'
-    ChargeSessionResponse:
+    ChargeSessionResponse:  
       description: Charge session response.
       content:
         application/hal+json:
           schema:
             $ref: '#/components/schemas/TimestampedChargingSession'
-
+ 
     ChargeSessionFailedResponse:
       description: Charge session request error.
       $ref: '#/x-fragment/general_error_fragment'
@@ -6926,7 +6930,7 @@ components:
     ChargeSessionsFailedResponse:
       description: Charge sessions request error
       $ref: '#/x-fragment/general_error_fragment'
-
+    
     TelemetrySuccessResponse:
       description: Telemetry response
       content:
@@ -7065,7 +7069,7 @@ components:
       content:
         application/hal+json:
           schema:
-            $ref: '#/components/schemas/Handles'
+            $ref: '#/components/schemas/Handles' 
     MonitorHandleRefSuccessResponses:
       description: Monitor vehicles handled by a monitor.
       content:
@@ -7204,7 +7208,7 @@ components:
         application/hal+json:
           schema:
             $ref: '#/components/schemas/Stolen'
-
+    
     StolenSuccessResponses:
       description: A list of stolen context.
       content:
@@ -7214,7 +7218,7 @@ components:
 
     StolenFailedResponse:
       description: Stolen request error
-      $ref: '#/x-fragment/general_error_fragment'
+      $ref: '#/x-fragment/general_error_fragment'      
 security:
   - api_keyAuth: []
   - api_oauth: []
@@ -7226,7 +7230,7 @@ x-fragment:
       summary: Onboard capability of vehicle
       description: |
         Returns data scopes and remote commands vehicle is eligible for.
-
+        
       operationId: getVehicleCapabilityByid
       parameters:
         - $ref: '#/components/parameters/vehicleId'
@@ -7641,10 +7645,10 @@ x-fragment:
           $ref: '#/components/responses/TelemetrySuccessResponse'
         default:
           $ref: '#/components/responses/TelemetryFailedResponse'
-
-
-
-
+  
+  
+  
+  
   Vehicles_id_EcoCoaching_profiles_getter:
     get:
        summary: Retrieve the profiles used in the vehicle
@@ -7669,7 +7673,7 @@ x-fragment:
                 schema:
                   $ref: '#/components/schemas/TripProfile'
          default:
-            $ref: '#/components/responses/TripsSettingsFailedResponse'
+            $ref: '#/components/responses/TripsSettingsFailedResponse' 
   Vehicles_id_EcoCoaching_suggestions_getter:
      get:
        summary: This API enables to retrieve the suggestions related to vehicle engine type
@@ -7679,7 +7683,7 @@ x-fragment:
         This API enables to retrieve the suggestions related to vehicle engine type.
          |Scope Name |Mandatory State|
          |----------|:-------------:|
-         | data:trip|Required|
+         | data:trip|Required|     
        operationId: getVehicleEcoCoachingSuggestions
        parameters:
          - $ref: '#/components/parameters/vehicleId'
@@ -7724,9 +7728,9 @@ x-fragment:
          '200':
             description: ORP settings configuration update Success
          default:
-            $ref: '#/components/responses/TripsSettingsFailedResponse'
-
-
+            $ref: '#/components/responses/TripsSettingsFailedResponse'    
+    
+    
   Vehicle_id_Trip_id_wayPoints_getter:
     get:
       summary: Path of trip
@@ -7876,7 +7880,7 @@ x-fragment:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/orderBy'
-
+  
       security:
         - api_oauth:
             - data:trip #Required
@@ -7986,7 +7990,7 @@ x-fragment:
         - api_oauth:
             - data:telemetry:vehicle:location
             - data:telemetry:vehicle:energies #Required
-      responses:
+      responses: 
         '200':
           $ref: '#/components/responses/ChargeSessionsSuccessResponses'
         default:
@@ -8047,13 +8051,13 @@ x-fragment:
 
 
           * When the trigger occurs, the built event expressed as a JSON (definied in the Event template Specification) object will be sent over the subscribed channel.
-
-
+          
+          
           * All necessary OAuth2 scopes (defined by this API) to satisfy to monitor triggers must be granted when creating the monitor. Scopes involving data triggers are mandatory (see triggers scopes definition) while those of extensions are optional. This means that the missed scope will prevent the associated extension from being defined.
-
+          
           * Note: Max. 5 no. of monitors are allowed per account.
           * Note: Max. Max 1 monitor is allowed per account for  trigger of type settings
-
+          
         |Scope Name |Mandatory State|
         |----------|:-------------:|
         | monitor:write|Required|
@@ -8079,9 +8083,9 @@ x-fragment:
         - Monitors
       summary: Update an existing Monitor.
       description: |
-        Update an existing ```Monitor``` that has been posted (and accepted previously) for this vehicle. The monitor object (body) provided should be complete (the aggregation is not supported for the update of the ```monitor```).
+        Update an existing ```Monitor``` that has been posted (and accepted previously) for this vehicle. The monitor object (body) provided should be complete (the aggregation is not supported for the update of the ```monitor```). 
         You can first retrieve this object using the ```GET /monitor/{mid}``` API, then modify it and finally publish it (via this ```PUT API```).
-
+        
         |Scope Name |Mandatory State|
         |----------|:-------------:|
         | monitor:write|Required|
@@ -8218,7 +8222,7 @@ x-fragment:
         - $ref: '#/components/parameters/vinPrefix'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/pageToken'        
       security:
         - api_oauth:
             - monitor:read #Required
@@ -8226,7 +8230,7 @@ x-fragment:
         '200':
           $ref: '#/components/responses/MonitorHandlesSuccessResponses'
         default:
-          $ref: '#/components/responses/MonitorFailedResponse'
+          $ref: '#/components/responses/MonitorFailedResponse'  
   ch_id_monitor_id_handles_Groups_Getter:
     get:
       tags:
@@ -8244,7 +8248,7 @@ x-fragment:
         - $ref: '#/components/parameters/groupPrefix'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/pageToken'        
       security:
         - api_oauth:
             - monitor:read #Required
@@ -8252,7 +8256,7 @@ x-fragment:
         '200':
           $ref: '#/components/responses/GroupsOfGroupSuccessResponse'
         default:
-          $ref: '#/components/responses/MonitorHandlesVinsFailedResponse'
+          $ref: '#/components/responses/MonitorHandlesVinsFailedResponse'         
   channels_crud:
     get:
       tags:
@@ -8280,14 +8284,14 @@ x-fragment:
       tags:
         - Channels
       summary: Register a new reusable channel.
-
-      description: |
+              
+      description: | 
         Create a new reusable channel.
         * Note: Max. 5 no. of channels are allowed per account.
         |Scope Name |Mandatory State|
         |----------|:-------------:|
         | channel:write|Required|
-
+      
       operationId: postChannels
       security:
         - api_oauth:
@@ -8405,14 +8409,14 @@ x-fragment:
       summary: Send a remote action to a vehicle.
       description: |
         Create a new asynchrone vehicle remote action and request it.
-        The REMOTE action is specified by the Remote object which offers a set of possible actions (locking, horn,lights,preconditioning,onboardPersonalData, charging, stolen, wakeup, navigation, vehicleFinder, immobilization).
+        The REMOTE action is specified by the Remote object which offers a set of possible actions (locking, horn,lights,preconditioning,onboardPersonalData, charging, stolen, wakeup, navigation, vehicleFinder, immobilization). 
 
         The remote resource creation is also related to a channel that will serve as a remote action result event callback.
-
+         
          However, each remote action needs a different permissions set.
           This API has therefore defined a set of SCOPE OAUTH2 to cover all possible actions. But the API caller should only have the SCOPEs necessary for the action his is requesting for. The necessary scopes  for each action are defined as follows:
-
-        |<b>Remote action</b>|<b>Scope</b>|<b>Mandatory</b>|
+          
+        |<b>Remote action</b>|<b>Scope</b>|<b>Mandatory</b>| 
         |---|---|---|
         |locking|remote:locking:write|Optional|
         |horn| remote:horn:write|Optional|
@@ -8436,7 +8440,7 @@ x-fragment:
             - remote:wakeUp:write
             - remote:navigation:write
             - remote:vehicleFinder:write
-
+ 
       parameters:
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/channelId'
@@ -8479,7 +8483,7 @@ x-fragment:
         | remote:navigation:write|Optional|
         | remote:vehicleFinder|Optional|
         | remote:vehicleFinder:write|Optional|
-
+        
       operationId: getVehicleRemotes
       security:
         - api_oauth:
@@ -8764,7 +8768,7 @@ x-fragment:
   404_data_notfound_error_fragment:
     content:
       application/json:
-        schema:
+        schema: 
           $ref: '#/components/schemas/DataNotFoundError'
 
   Vehicle_id_alarm_disable_post:
@@ -8845,7 +8849,7 @@ x-fragment:
           $ref: '#/components/responses/StolenSuccessResponses'
         default:
           $ref: '#/components/responses/StolenFailedResponse'
-
+          
   Vehicle_id_stolen_id_report_getter:
     get:
       tags:
@@ -8861,7 +8865,7 @@ x-fragment:
           $ref: '#/components/responses/StolenSucessResponse'
         default:
           $ref: '#/components/responses/StolenFailedResponse'
-
+  
   Vehicle_id_stolen_id_report_waypoints_getter:
     get:
       tags:
@@ -8884,4 +8888,4 @@ x-fragment:
               schema:
                 $ref: '#/components/schemas/StolenWayPoints'
         default:
-          description: wayPoints not found
+          description: wayPoints not found           

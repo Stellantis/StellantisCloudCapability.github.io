@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="helloworld1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/_site/docs/assets/downloads/helloworld.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

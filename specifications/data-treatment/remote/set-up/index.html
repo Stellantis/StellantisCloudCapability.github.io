@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Set Up | Remote | Specifications DATA-TREATMENT</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Set Up | Remote | Specifications DATA-TREATMENT">
+    <meta property="og:url" content="/mph05/ApiSpec/specifications/data-treatment/remote/set-up/">
+    <meta property="og:image" content="/mph05/ApiSpec/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis API portal">
+    <meta property="og:description" content="Learn how to set-up remotes in Fleet Owner API.">
+    <link rel="icon" type="image/png" href="/mph05/ApiSpec/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Set Up | Remote | Specifications DATA-TREATMENT">
+    <meta name="twitter:description" content="Learn how to set-up remotes in Fleet Owner API.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Learn how to set-up remotes in Fleet Owner API." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="/mph05/ApiSpec/specifications/data-treatment/remote/set-up/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/mph05/ApiSpec/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS -->
+    <link rel="stylesheet" href="/mph05/ApiSpec/assets/css/modules/api-reference.css">
+    <!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/mph05/ApiSpec/assets/js/dropdown.js"></script>
+    <script src="/mph05/ApiSpec/assets/js/main.js"></script>
+<body>
+    <section class="hero hero-header is-medium hero_api">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/mph05/ApiSpec/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/mph05/ApiSpec/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/mph05/ApiSpec/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/mph05/ApiSpec/connected-vehicles/overview/#article" class="navbar-item dropdown-title " id="overviews" onclick="navClick(document.getElementById('overviews'), 'overviews');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overviews" class=" navbar-item " href="/mph05/ApiSpec/connected-vehicles/overview/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overviews" class=" navbar-item " href="/mph05/ApiSpec/connected-vehicles/overview/remotes-control/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overviews" class=" navbar-item " href="/mph05/ApiSpec/connected-vehicles/overview/monitoring-notification/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/mph05/ApiSpec/specifications/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Cloud API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/mph05/ApiSpec/specifications/data-treatment/#article" class="navbar-item dropdown-title is-default is-active" id="data-treatment" onclick="navClick(document.getElementById('data-treatment'), 'data-treatment');">
+                                <span>
+                                    
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-down" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="data-treatment" class=" is-default-subsection  navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/overview/about/#article">
+                                        Overview
+                                    </a><a id="data-treatment" class=" is-default-subsection  navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/monitor/about-monitors/#article">
+                                        Monitor
+                                    </a><a id="data-treatment" class=" is-default-subsection  navbar-item is-active" href="/mph05/ApiSpec/specifications/data-treatment/remote/about-remotes/#article">
+                                        Remote
+                                    </a><a id="data-treatment" class=" is-default-subsection  navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b/auth/#article">
+                                        Partners
+                                    </a><a id="data-treatment" class=" is-default-subsection  navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/about-authentication/#article">
+                                        ExVe (Extended Vehicle)
+                                    </a><a id="data-treatment" class=" is-default-subsection  navbar-item is-active" href="/mph05/ApiSpec/specifications/data-treatment/api-reference/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/mph05/ApiSpec/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+
+        function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+        document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+        document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title">API</h1>
+            <h2 class="title">Specifications</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+    <div class="columns is-gapless">
+        <div class="column is-narrow is-hidden-mobile"> 
+            
+            <aside class="menu">
+                <span class="menu-title">
+                    
+                        
+                        
+                        
+                        
+                    
+                        
+                        Cloud API
+                        
+                        
+                        
+                        - Data treatment
+                        
+                        
+                    
+                        
+                        
+                        
+                        
+                    
+                </span>
+                                    <p href="/mph05/ApiSpec/specifications/data-treatment/overview/" class='menu-label has-list' id="Overview">
+                                        <span>
+                                            Overview
+                                        </span>
+                                    </p>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/overview/about/#article">
+                                                About 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/overview/api-concepts/#article">
+                                                API Concepts 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/overview/errors/#article">
+                                                Errors & Rate Limit 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/overview/data-scope/#article">
+                                                Data Scope 
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                    <p href="/mph05/ApiSpec/specifications/data-treatment/monitor/" class='menu-label has-list' id="Monitor">
+                                        <span>
+                                            Monitor
+                                        </span>
+                                    </p>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/monitor/about-monitors/#article">
+                                                About Monitors 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/monitor/set-up/#article">
+                                                Set Up 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/monitor/retry-policy/#article">
+                                                Retry Policy 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/monitor/server-specification/#article">
+                                                Server Specification 
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                    <p href="/mph05/ApiSpec/specifications/data-treatment/remote/" class='menu-label has-list is-active' id="Remote">
+                                        <span>
+                                            Remote
+                                        </span>
+                                    </p>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/remote/about-remotes/#article">
+                                                About Remotes 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="is-active" href="/mph05/ApiSpec/specifications/data-treatment/remote/set-up/#article">
+                                                Set Up 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/remote/retry-policy/#article">
+                                                Retry Policy 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/remote/notifications-and-errors/#article">
+                                                Notifications and Errors 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/remote/server-specification/#article">
+                                                Server Specification 
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                    <p href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b/" class='menu-label has-list' id="Partners">
+                                        <span>
+                                            Partners
+                                        </span>
+                                    </p>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b/auth/#article">
+                                                Authentication 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b/examples/#article">
+                                                Examples 
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                    <p href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/" class='menu-label has-list' id="ExVe (Extended Vehicle)">
+                                        <span>
+                                            ExVe (Extended Vehicle)
+                                        </span>
+                                    </p>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/about-authentication/#article">
+                                                Authentication 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/data-availability-scopes/#article">
+                                                Data Availability and Scopes 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/app-registration/#article">
+                                                App Registration 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/enroll-end-users/#article">
+                                                Enroll End-Users 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/acess-end-user-data/#article">
+                                                Access End-User Data 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/end-user-journey/#article">
+                                                End-User Journey 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/request-examples/#article">
+                                                Request Examples 
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                    <p href="/mph05/ApiSpec/specifications/data-treatment/" class='menu-label has-list' id="API Reference">
+                                        <span>
+                                            API Reference
+                                        </span>
+                                    </p>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/api-reference/#article">
+                                                API Reference 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a  href="/mph05/ApiSpec/specifications/data-treatment/changelog/#article">
+                                                API Changelog 
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    </aside>
+            
+        </div>
+        <main class="column">
+            <div class="content">
+                
+
+<div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+        
+            <span>
+                
+                    Remote - 
+                
+                    Set Up
+            </span>
+        
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/overview/about/#article" 
+                                                            >
+                                                                About
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/overview/api-concepts/#article" 
+                                                            >
+                                                                API Concepts
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/overview/errors/#article" 
+                                                            >
+                                                                Errors & Rate Limit
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/overview/data-scope/#article" 
+                                                            >
+                                                                Data Scope
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Monitor">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/monitor/about-monitors/#article" 
+                                                            >
+                                                                About Monitors
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/monitor/set-up/#article" 
+                                                            >
+                                                                Set Up
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/monitor/retry-policy/#article" 
+                                                            >
+                                                                Retry Policy
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/monitor/server-specification/#article" 
+                                                            >
+                                                                Server Specification
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Remote">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/remote/about-remotes/#article" 
+                                                            >
+                                                                About Remotes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/remote/set-up/#article" 
+                                                            selected>
+                                                                Set Up
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/remote/retry-policy/#article" 
+                                                            >
+                                                                Retry Policy
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/remote/notifications-and-errors/#article" 
+                                                            >
+                                                                Notifications and Errors
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/remote/server-specification/#article" 
+                                                            >
+                                                                Server Specification
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Partners">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b/auth/#article" 
+                                                            >
+                                                                Authentication
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b/examples/#article" 
+                                                            >
+                                                                Examples
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="ExVe (Extended Vehicle)">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/about-authentication/#article" 
+                                                            >
+                                                                Authentication
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/data-availability-scopes/#article" 
+                                                            >
+                                                                Data Availability and Scopes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/app-registration/#article" 
+                                                            >
+                                                                App Registration
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/enroll-end-users/#article" 
+                                                            >
+                                                                Enroll End-Users
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/acess-end-user-data/#article" 
+                                                            >
+                                                                Access End-User Data
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/end-user-journey/#article" 
+                                                            >
+                                                                End-User Journey
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/quickstart/b2b2c/request-examples/#article" 
+                                                            >
+                                                                Request Examples
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/api-reference/#article" 
+                                                            >
+                                                                API Reference
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/specifications/data-treatment/changelog/#article" 
+                                                            >
+                                                                API Changelog
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+        <a 
+            
+            href="specifications/data-treatment/content/data-treatment-remote_set_up.md"
+             
+            class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+            target="_blank" 
+            title="Edit this page on GitHub">
+                <span class="icon">
+                    <i  class="fab fa-github"></i> 
+                </span>
+                <span class="edit-page-text">
+                    Edit
+                </span>
+        </a>
+        
+        
+<a
+  href='https://jira-it2.mpsa.com/secure/CreateIssueDetails!init.jspa?pid=54650&summary=%5BSPECIFICATIONS-DATA-TREATMENT-+Remote%5D+Set+Up&issuetype=10401&assignee=e570958&priority=4&description=PAGE+Link%3A+%2Fmph05%2FApiSpec%2Fspecifications%2Fdata-treatment%2Fremote%2Fset-up%2F&components=191188'
+  class="button edit-page icon-button is-outlined is-pulled-right is-small"
+  target="_blank"
+  title="Create Jira ticket about this page"
+>
+  <span class="icon">
+    <i class="fab fa-jira"></i>
+  </span>
+  <span class="edit-page-text">
+    Jira
+  </span>
+</a>
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/mph05/ApiSpec/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/mph05/ApiSpec/specifications/">Cloud API</a>
+            </li>
+            
+            
+            <li>
+                <a href="/mph05/ApiSpec/specifications/data-treatment/">Data treatment</a>
+            </li>
+            
+            
+            <li>
+                <a href="/mph05/ApiSpec/specifications/data-treatment/remote/">Remote</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    Set Up
+                </a>
+            </li>
+        </ul>
+    </nav></div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = "/mph05/ApiSpec"+e.target.value;
+    });
+
+
+</script>
+                
+                <p>This tutorial explains how to set up remotes using the REST API. In order to do so, we will need to understand how to configure the <strong>callback</strong> and send a <strong>remote command</strong>.</p>
+      <h2 id="post-channel">
+        <span class="bd-anchor-name">
+        
+          Post Channel
+                  </span>
+ <a href="#post-channel" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>The first step is to configure a reusable configuration settings named <em>channel</em>.</p>
+
+<div id="-" class="api-content-code api-code-content-webapi" style="margin-bottom: 1.5rem;"><div class="api-code-header">
+
+  
+
+    <a class="api-code-header-text api-code-header-subscribe" href="/mph05/ApiSpec">
+      POST |&nbsp;</a>
+  </div>
+  <div class="code-block first-block kotlin">
+    <div class="api-code-header">
+      <div class="api-code-tabs-container">
+        <nav class="api-code-tabs">
+          <div class="api-code-tab kotlin">
+            <span class="api-code-tab-icon is-white">
+              <i class="fas fa-long-arrow-alt-up"></i>
+            </span>
+            <span class="api-code-tab-text">HTTP Request</span>
+          </div>
+          
+        </nav>
+      </div>
+    </div>
+    <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>curl <span class="se">\</span>
+  <span class="nt">--POST</span> <span class="se">\</span>
+  <span class="nt">--url</span> /accounts/channels <span class="se">\</span>
+  <span class="nt">--data</span> <span class="s1">'client_id=&lt;client_id&gt;'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=='</span> <span class="se">\</span>
+  <span class="nt">--cert</span> <span class="s1">'path/to/client_cert.pem[:&lt;cert_password&gt;]'</span> <span class="se">\</span>
+  <span class="nt">--key</span> <span class="s1">'path/to/key.pem'</span> <span class="se">\</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+    </div>
+    <div class="api-content-code-example api-content-code-example-req-swift">
+      
+    </div>
+  </div>
+  </div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Channel Remote 755"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"webhook"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://webhook.site/a1fd8eac-a1a7-452c-9169-441ef8fdd098"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webhook"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Header"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x-vehicle-id"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$vin"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Below is a description of the JSON body to configure the channel.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">label</code> is the name of the callback. </li>
+  <li><code class="language-plaintext highlighter-rouge">callback.webhook</code>: to set up the reception server and the notification attributes (headers, query params, body, usually use for routing).</li>
+  <li><code class="language-plaintext highlighter-rouge">retryPolicy</code> to configure how to deal with a server not receiving notifications. <strong>Retry Policy</strong> is described in this <a href="/mph05/ApiSpec/specifications/data-treatment/remote/retry-policy/#article">dedicated page</a>.</li>
+  <li><code class="language-plaintext highlighter-rouge">batchNotify</code> if notifications needs to be received in batches instead of one by one.</li>
+  <li><code class="language-plaintext highlighter-rouge">remoteTypes</code> allows to set up which type of remotes  can work with this callback.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Be careful:</strong> it’s only possible to send <strong>one remote action at once</strong>. However, callbacks are re-usable for multiple those remote action.</p>
+</blockquote>
+    
+      <h3 id="example-of-remote-operation">
+        <span class="bd-anchor-name">
+        
+          Example of Remote Operation
+                  </span>
+
+        
+        
+      </h3>
+
+<p>This example <strong>creates</strong> a remote operation with the following parameters:</p>
+<ul>
+  <li>If the callback <strong>notification is not received</strong>, the request will be sent again every 120s until it’s properly delivered.</li>
+  <li>The callback will be <strong>sent once</strong> 10 callback notifications are ready to be sent or 300s after triggering.</li>
+  <li>The callback will be <strong>sent to</strong> <code class="language-plaintext highlighter-rouge">https://my.post.callback</code> webhook, with the VIN of the vehicle as a query path parameter and the <code class="language-plaintext highlighter-rouge">Basic authentication</code> in HTTP headers.</li>
+  <li>This callback can be used in order to send <strong>remote action</strong>: <code class="language-plaintext highlighter-rouge">ChargingSchedule</code>.</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"charging"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"charging"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"charge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"immediate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT12H30M"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT14H30M"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"chargeToFull"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"occurrence"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"day"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="s2">"Mon"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"Tue"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"Wed"</span><span class="p">,</span><span class="w">
+                                </span><span class="s2">"Thu"</span><span class="w">
+                            </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"minChargingLevel"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"maxChargingLevel"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"slot"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"actionsType"</span><span class="p">:</span><span class="s2">"Set"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>If the remote operation is properly created the HTTP <strong>response body</strong> will look like:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+    </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"templated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deprecation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"remote"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"templated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deprecation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"remoteActionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Locking"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>This message indicates that the callback has been sucessfully created with a unique identifier. This identifier, called <em>{chid}</em> is required to <a href="#post-remote-request">create a remote</a>.</p>
+    
+      <h2 id="post-remote-request">
+        <span class="bd-anchor-name">
+        
+          Post Remote Request
+                  </span>
+ <a href="#post-remote-request" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>The following example is the structure of the HTTP request intended to send a remote command.</p>
+
+<p>The following <strong>path parameters are required</strong>, they need to be replaced by the appropriate value:</p>
+<ul>
+  <li><strong>{id}</strong> is the id.</li>
+  <li><strong>{vid}</strong> is the id of the vehicle to send a remote to.</li>
+  <li><strong>{cbid}</strong> is the id of a callback, this id is received when a <a href="#post-callback">callback is created</a>.</li>
+</ul>
+
+<div id="-" class="api-content-code api-code-content-webapi" style="margin-bottom: 1.5rem;"><div class="api-code-header">
+
+  
+
+    <a class="api-code-header-text api-code-header-subscribe" href="/mph05/ApiSpec">
+      POST |&nbsp;</a>
+  </div>
+  <div class="code-block first-block kotlin">
+    <div class="api-code-header">
+      <div class="api-code-tabs-container">
+        <nav class="api-code-tabs">
+          <div class="api-code-tab kotlin">
+            <span class="api-code-tab-icon is-white">
+              <i class="fas fa-long-arrow-alt-up"></i>
+            </span>
+            <span class="api-code-tab-text">HTTP Request</span>
+          </div>
+          
+        </nav>
+      </div>
+    </div>
+    <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>curl <span class="se">\</span>
+  <span class="nt">--POST</span> <span class="se">\</span>
+  <span class="nt">--url</span> /accounts/vehicles/<span class="o">{</span><span class="nb">id</span><span class="o">}</span>/channels/<span class="o">{</span>chId<span class="o">}</span>/remotes <span class="se">\</span>
+  <span class="nt">--data</span> <span class="s1">'client_id=&lt;client_id&gt;'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=='</span> <span class="se">\</span>
+  <span class="nt">--cert</span> <span class="s1">'path/to/client_cert.pem[:&lt;cert_password&gt;]'</span> <span class="se">\</span>
+  <span class="nt">--key</span> <span class="s1">'path/to/key.pem'</span> <span class="se">\</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+    </div>
+    <div class="api-content-code-example api-content-code-example-req-swift">
+      
+    </div>
+  </div>
+  </div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">label</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">doors</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">locking</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">state</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Unlocked</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Below is a description of the JSON body to configure the remote, refers to <a href="/mph05/ApiSpec/webapi/data-treatment/api-reference/references/#operation/sendRemoteToVhl">API Reference</a> for the specification of this endpoint.</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">label</code> is the name of the remote.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">&lt;remote-type&gt;</code> objects allow configuring the remote action to send, checkout <a href="#remote-actions">remote actions</a>. Only one remote can be sent at once.</p>
+  </li>
+</ul>
+    
+      <h2 id="post-remote-response">
+        <span class="bd-anchor-name">
+        
+          Post Remote Response
+                  </span>
+ <a href="#post-remote-response" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>This is an example of HTTP response when sending a remote action:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+    </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"templated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deprecation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"remote"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"templated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deprecation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"remoteActionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Locking"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>This message indicates that the remote has been successfully created with a unique identifier. This identifier is sent with every notification; therefore, it allows tracking this remote.</p>
+    
+      <h2 id="remote-actions">
+        <span class="bd-anchor-name">
+        
+          Remote Actions
+                  </span>
+ <a href="#remote-actions" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Object Name</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>remoteLocking</td>
+      <td>Lock or unlock the vehicle remotely.</td>
+      <td><code class="language-plaintext highlighter-rouge">{ "locking": { "state": "Unlocked" } }</code></td>
+    </tr>
+    <tr>
+      <td>remoteHorn</td>
+      <td>Activate the vehicle’s horn remotely.</td>
+      <td><code class="language-plaintext highlighter-rouge">{ "horn": { "state": "Activated" } }</code></td>
+    </tr>
+    <tr>
+      <td>remoteLights</td>
+      <td>Blink the vehicle’s lights remotely.</td>
+      <td><code class="language-plaintext highlighter-rouge">{ "lights": { "state": "Activated" } }</code></td>
+    </tr>
+    <tr>
+      <td>remotePreconditioning</td>
+      <td>Start or schedule climate preconditioning with temperature and recurrence.</td>
+      <td><code class="language-plaintext highlighter-rouge">{ "preconditioning": { "airConditioning": { "immediate": false, "programs": [ { "start": "string", "occurrence": { "day": ["Mon"] }, "enabled": true, "temp": 0, "slot": 4, "actionsType": "Set" } ], "settings": { "temp": 0, "mode": "Auto", "state": "Activated" } } } }</code></td>
+    </tr>
+    <tr>
+      <td>remoteOnboardPersonalData</td>
+      <td>Delete user’s personal data from the vehicle.</td>
+      <td><code class="language-plaintext highlighter-rouge">{ "onboardPersonalData": { "action": "Delete" } }</code></td>
+    </tr>
+    <tr>
+      <td>remoteCharging</td>
+      <td>Start, stop, or schedule a charging session with preferences.</td>
+      <td><code class="language-plaintext highlighter-rouge">{ "charging": { "charge": { "immediate": false, "programs": [ { "start": "string", "occurrence": { "day": ["Mon"] }, "enabled": true, "end": "string", "chargeToFull": true, "minChargingLevel": 50, "maxChargingLevel": 100, "chargeType": "Regular", "slot": 2, "actionsType": "Set" } ], "settings": { "chargePreferenceRate": "Low", "chargeLimit": "MedPlus" } } } }</code></td>
+    </tr>
+    <tr>
+      <td>remoteWakeup</td>
+      <td>Wake up the vehicle for remote actions or data sync.</td>
+      <td><code class="language-plaintext highlighter-rouge">{ "wakeup": { "action": "Wakeup" } }</code></td>
+    </tr>
+    <tr>
+      <td>remoteImmobilization</td>
+      <td>Prevent the vehicle from being started or moved.</td>
+      <td><code class="language-plaintext highlighter-rouge">{ "immobilization": { "activate": true } }</code></td>
+    </tr>
+    <tr>
+      <td>remoteNavigation</td>
+      <td>Send GPS points to guide the vehicle using in-car navigation.</td>
+      <td><code class="language-plaintext highlighter-rouge">{ "navigation": { "positions": [ { "type": "Feature", "geometry": { "type": "Point", "coordinates": [5.970338, -62.536239] }, "properties": { "address": { "houseNumber": "string", "postalCode": 0, "streetName": "string", "cityName": "string", "countryName": "string", "provinceName": "string" }, "placeid": 0, "name": "Doltone House", "category": "Restraunt", "description": "", "phoneNumber": "+61 2 1234 5678", "url": "string" } } ] } }</code></td>
+    </tr>
+    <tr>
+      <td>remoteVehicleFinder</td>
+      <td>Get the current GPS location of the vehicle.</td>
+      <td><code class="language-plaintext highlighter-rouge">{ "vehicleFinder": { "action": "GetPresentLocation" } }</code></td>
+    </tr>
+    <tr>
+      <td>remoteStolen</td>
+      <td>Mark the vehicle as stolen and optionally disable ignition.</td>
+      <td><code class="language-plaintext highlighter-rouge">{ "stolen": { "state": true, "crankInhibit": { "activate": true } } }</code></td>
+    </tr>
+    <tr>
+      <td>remoteTan</td>
+      <td>Manage Theft Alarm Notification suppression or confirmation.</td>
+      <td><code class="language-plaintext highlighter-rouge">{ "tan": { "suppress": { "state": true, "duration": 5 }, "confirm": { "state": true } } }</code></td>
+    </tr>
+  </tbody>
+</table>
+                
+            <div>
+        </main>
+        
+        
+        <div class="column is-hidden-touch" id="on-this-page-container">
+            <aside id="on-this-page">
+            
+            
+                <div class="bd-anchors-reference" id="anchorsReference"></div>
+                <nav class="bd-anchors" id="anchors">
+                    <p class="bd-anchors-title">
+                        On this page
+                    </p>
+                    <ul class="bd-anchors-list"></ul>
+            </nav>
+            
+
+            </aside>
+        </div>
+        
+    </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/mph05/ApiSpec/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v1.0.0
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2025
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+     </div>
+    </footer>
+    <script type="text/javascript" src="/mph05/ApiSpec/assets/js/api-reference.js"></script>
+    </body>
+</html>

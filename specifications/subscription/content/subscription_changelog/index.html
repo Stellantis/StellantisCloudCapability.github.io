@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stellantis API portal</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Stellantis API portal">
+    <meta property="og:url" content="/mph05/ApiSpec/specifications/subscription/content/subscription_changelog/">
+    <meta property="og:image" content="/mph05/ApiSpec/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis API portal">
+    <meta property="og:description" content="Converged API specifications for the multi generation Stellantis vehicle family .">
+    <link rel="icon" type="image/png" href="/mph05/ApiSpec/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Stellantis API portal">
+    <meta name="twitter:description" content="Converged API specifications for the multi generation Stellantis vehicle family .">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Converged API specifications for the multi generation Stellantis vehicle family ." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="/mph05/ApiSpec/specifications/subscription/content/subscription_changelog/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/mph05/ApiSpec/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS --><!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/mph05/ApiSpec/assets/js/dropdown.js"></script>
+    <script src="/mph05/ApiSpec/assets/js/main.js"></script>
+<body>
+    <section class="hero hero-header no-header-body">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/mph05/ApiSpec/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/mph05/ApiSpec/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/mph05/ApiSpec/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/mph05/ApiSpec/connected-vehicles/overview/#article" class="navbar-item dropdown-title " id="overviews" onclick="navClick(document.getElementById('overviews'), 'overviews');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overviews" class=" navbar-item " href="/mph05/ApiSpec/connected-vehicles/overview/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overviews" class=" navbar-item " href="/mph05/ApiSpec/connected-vehicles/overview/remotes-control/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overviews" class=" navbar-item " href="/mph05/ApiSpec/connected-vehicles/overview/monitoring-notification/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/mph05/ApiSpec/specifications/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Cloud API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/mph05/ApiSpec/specifications/data-treatment/#article" class="navbar-item dropdown-title " id="data-treatment" onclick="navClick(document.getElementById('data-treatment'), 'data-treatment');">
+                                <span>
+                                    
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="data-treatment" class=" navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/overview/about/#article">
+                                        Overview
+                                    </a><a id="data-treatment" class=" navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/monitor/about-monitors/#article">
+                                        Monitor
+                                    </a><a id="data-treatment" class=" navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/remote/about-remotes/#article">
+                                        Remote
+                                    </a><a id="data-treatment" class=" navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b/auth/#article">
+                                        Partners
+                                    </a><a id="data-treatment" class=" navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/quickstart/b2b2c/about-authentication/#article">
+                                        ExVe (Extended Vehicle)
+                                    </a><a id="data-treatment" class=" navbar-item " href="/mph05/ApiSpec/specifications/data-treatment/api-reference/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/mph05/ApiSpec/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+
+        function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+        document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+        document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+</script>
+
+        </div>
+        
+    </section>
+<table>
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#dt_v1.0.0">dt_v1.0.0</a></td>
+      <td>initial version</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="dt_v100">dt_v1.0.0</h2>
+
+<h4 id="initial-version"><code class="language-plaintext highlighter-rouge">initial version</code></h4>
+<p>Initial draft</p>
+<footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/mph05/ApiSpec/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v1.0.0
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2025
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+     </div>
+    </footer></body>
+</html>

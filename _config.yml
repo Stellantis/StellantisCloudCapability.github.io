@@ -2,7 +2,7 @@
 title: Stellantis API portal
 name: Stellantis API portal
 description: Converged API specifications for the multi generation Stellantis vehicle family .
-baseurl: "/mph05/ApiSpec" # the subpath of the site, e.g. /blog
+baseurl: "/StellantisCloudCapability.github.io" # the subpath of the site, e.g. /blog
 
 # doc versionning
 doc-version: "1.0.0"
